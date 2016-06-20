@@ -420,12 +420,28 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="n1" destination="BcU-Tz-EYM" id="DFs-4L-GGr"/>
+                        <outlet property="n10" destination="oPq-zJ-FqM" id="cJt-DS-C93"/>
+                        <outlet property="n11" destination="drG-Bn-wgf" id="52l-W9-k5q"/>
+                        <outlet property="n12" destination="v28-OU-FqK" id="bvi-SA-Evb"/>
+                        <outlet property="n13" destination="c9H-yS-xUZ" id="LGb-zt-jfm"/>
+                        <outlet property="n14" destination="99A-mV-mQL" id="239-WX-kXu"/>
+                        <outlet property="n15" destination="Pdd-hG-bJJ" id="Whh-3m-Sxt"/>
+                        <outlet property="n16" destination="yNq-8u-pTH" id="lAb-v1-HBe"/>
+                        <outlet property="n2" destination="Jmw-7d-KPw" id="ljo-1M-hwg"/>
+                        <outlet property="n3" destination="HrY-rk-7Py" id="yzy-F9-m1Q"/>
+                        <outlet property="n4" destination="lIq-s2-cw6" id="q1O-2L-lSW"/>
+                        <outlet property="n5" destination="xSH-93-auf" id="ekk-Rg-Oge"/>
+                        <outlet property="n6" destination="UxZ-ch-nG1" id="oGN-sw-ROG"/>
+                        <outlet property="n7" destination="Zj2-Jm-Aus" id="tAj-b1-xbf"/>
+                        <outlet property="n8" destination="njv-kp-yij" id="Jpu-lh-3F1"/>
+                        <outlet property="n9" destination="BeE-Dc-I7G" id="ulR-P0-SJ9"/>
                         <segue destination="Qaz-FX-Ub6" kind="show" identifier="goToQuestion" id="TTa-2C-0Ss"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="365"/>
+            <point key="canvasLocation" x="259" y="365"/>
         </scene>
         <!--Questions View Controller-->
         <scene sceneID="Lwc-wH-b1n">
@@ -933,7 +949,7 @@
         <image name="topBarBG" width="640" height="140"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="TTa-2C-0Ss"/>
         <segue reference="Apk-HN-WMl"/>
-        <segue reference="VGL-G2-vDv"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -29,6 +29,9 @@ class FailViewController: UIViewController {
         self.performSegueWithIdentifier("FailToQuestion", sender: self)
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
     
 
     /*

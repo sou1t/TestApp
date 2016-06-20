@@ -10,9 +10,16 @@ import UIKit
 
 class SuccessViewController: UIViewController {
 
+    let def = NSUserDefaults.standardUserDefaults()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var ArrayOfSuccess:Array<Int>
+        ArrayOfSuccess = def.arrayForKey("SuccessLevels") as? Array<Int> ?? []
+        let current = NSUserDefaults.standardUserDefaults().valueForKey("topValue") as? Int ?? 10
+        ArrayOfSuccess.append(current/10)
+        def.setObject(ArrayOfSuccess, forKey: "SuccessLevels")
         // Do any additional setup after loading the view.
     }
     
@@ -37,6 +44,11 @@ class SuccessViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+
 
     /*
     // MARK: - Navigation
