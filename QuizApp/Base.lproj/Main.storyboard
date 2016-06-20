@@ -96,7 +96,7 @@
                                     <constraint firstAttribute="width" constant="21" id="aJJ-KW-8NK"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Q4-ha-0HG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Q4-ha-0HG">
                                 <rect key="frame" x="265" y="31" width="13" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Fuu-qt-iHi"/>
@@ -691,6 +691,7 @@
                         <outlet property="Answer4" destination="QNd-Jx-2n8" id="sI2-Pt-rRw"/>
                         <outlet property="QuestionLabel" destination="2gE-b5-2ER" id="JaA-zi-82e"/>
                         <outlet property="QuestionNumber" destination="JpT-TX-hoa" id="duF-I1-YoG"/>
+                        <outlet property="TimeLabel" destination="f4j-mE-iNu" id="auh-wZ-LI4"/>
                         <segue destination="aYU-xC-rQH" kind="show" identifier="Ok" id="u25-ZT-e1B"/>
                         <segue destination="ziR-bO-jva" kind="show" identifier="Fail" id="3Ci-Yz-lW8"/>
                     </connections>
