@@ -43,7 +43,7 @@ class QuestionsViewController: UIViewController {
     
     func updateUI(questionNum:Int){
         if (questioNum < toplevel && lives>=1) {
-        
+        timeCount = 11.0
         if(!timer.valid){
         TimeLabel.text = timeString(timeCount)
         timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval,
@@ -60,7 +60,7 @@ class QuestionsViewController: UIViewController {
         
         let Model = QuestionModel()
         let questions = Model.questions
-        QuestionLabel.text = questions[questionNum].question
+        QuestionLabel.text = questions[questionNum].question            
         QuestionNumber.text = "\(questionNum+1)/10"
         Answer1.setTitle(questions[questionNum].answers[0], forState: .Normal)
         Answer2.setTitle(questions[questionNum].answers[1], forState: .Normal)
@@ -74,10 +74,12 @@ class QuestionsViewController: UIViewController {
         else
         {
             if (lives>=1) {
+                timeCount = 11.0
                 self.performSegueWithIdentifier("Ok", sender: self)
             }
             else
             {
+                timeCount = 11.0
                 self.performSegueWithIdentifier("Fail", sender: self)
             }
 

@@ -23,8 +23,4 @@ class Question {
         return correctAnswerIndex == Int(guessNumber-1)
     }
     
-        
-    
-    
-    
 }
