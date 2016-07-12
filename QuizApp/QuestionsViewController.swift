@@ -7,30 +7,44 @@
 //
 
 import UIKit
+import SDWebImage
 
 class QuestionsViewController: UIViewController {
+    @IBOutlet weak var score: UILabel!
     @IBOutlet weak var QuestionNumber: UILabel!
+    var coins = NSUserDefaults.standardUserDefaults().valueForKey("coins") as? String ?? "0"
+    @IBOutlet weak var BgForPic: UIImageView!
+    @IBOutlet weak var Photo: UIImageView!
     @IBOutlet weak var QuestionLabel: UILabel!
     @IBOutlet weak var Answer1: UIButton!
     @IBOutlet weak var Answer2: UIButton!
     @IBOutlet weak var Answer4: UIButton!
     @IBOutlet weak var Answer3: UIButton!
     @IBOutlet weak var TimeLabel: UILabel!
-    
+    @IBOutlet weak var CoinsLabel: UILabel!
+    var questions: Array<Question> = []
     let def = NSUserDefaults.standardUserDefaults()
-   
-    var questioNum = NSUserDefaults.standardUserDefaults().valueForKey("startValue") as? Int ?? 0
+    var questioNum = Int(arc4random_uniform(UInt32(8)))
+    var numOfLevels = NSUserDefaults.standardUserDefaults().valueForKey("numberOfLevels") as? Int ?? 0
     var lives = 3
-    let toplevel = NSUserDefaults.standardUserDefaults().valueForKey("topValue") as? Int ?? 10
+    var i = 1
+    var isCheating = false
+    //let toplevel = NSUserDefaults.standardUserDefaults().valueForKey("topValue") as? Int ?? 10
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI(questioNum)
         
+        score.text = def.valueForKey("score") as? String ?? "0"
+        CoinsLabel.text = coins
+        updateUI(questioNum)
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func GetGoldClicked(sender: AnyObject) {
+        self.performSegueWithIdentifier("QuestionToCoins", sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,12 +52,19 @@ class QuestionsViewController: UIViewController {
     
     var timer = NSTimer() //make a timer variable, but do do anything yet
     let timeInterval:NSTimeInterval = 0.05
-    var timeCount:NSTimeInterval = 11.0
-    let timerEnd:NSTimeInterval = 11.0
+    var timeCount:NSTimeInterval = 13.0
+    let timerEnd:NSTimeInterval = 13.0
+
     
     func updateUI(questionNum:Int){
-        if (questioNum < toplevel && lives>=1) {
-        timeCount = 11.0
+        isCheating = false
+        Answer1.enabled = false
+        Answer2.enabled = false
+        Answer3.enabled = false
+        Answer4.enabled = false
+        if (numOfLevels>0 && lives>=1) {
+        numOfLevels += -1
+        timeCount = 13.0
         if(!timer.valid){
         TimeLabel.text = timeString(timeCount)
         timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval,
@@ -57,44 +78,79 @@ class QuestionsViewController: UIViewController {
         
         
         
+            
         
-        let Model = QuestionModel()
-        let questions = Model.questions
-        QuestionLabel.text = questions[questionNum].question            
-        QuestionNumber.text = "\(questionNum+1)/10"
-        Answer1.setTitle(questions[questionNum].answers[0], forState: .Normal)
-        Answer2.setTitle(questions[questionNum].answers[1], forState: .Normal)
-        Answer3.setTitle(questions[questionNum].answers[2], forState: .Normal)
-        Answer4.setTitle(questions[questionNum].answers[3], forState: .Normal)
-        Answer1.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
-        Answer2.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
-        Answer3.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
-        Answer4.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
+            QuestionModel().GetQuestions{
+                (result) ->() in
+                for item in result.array!
+                {
+                    let AnswersString = item["Answers"].string
+                    let AnswerArray = AnswersString!.componentsSeparatedByString("; ")
+                    print(item["Question"].string!)
+                    print(AnswerArray)
+                    print(item["CorrectAnswer"].string!)
+                    self.questions.append(Question(question:item["Question"].string!, answers:AnswerArray, correctAnswerIndex:Int(item["CorrectAnswer"].string!)!, type: item["Type"].string!, photoURL: item["PhotoURL"].string!))
+
+                }
+                if(self.questions[questionNum].photoURL != "no")
+                {
+                    self.BgForPic.hidden = false
+                    self.Photo.hidden = false
+                    let url = NSURL(string: self.questions[questionNum].photoURL)
+                    self.Photo.sd_setImageWithURL(url)
+                    
+                }
+                else
+                {
+                    self.BgForPic.hidden = true
+                    self.Photo.hidden = true
+                }
+                let NumOfLevels = NSUserDefaults.standardUserDefaults().valueForKey("numberOfLevels") as? Int ?? 0
+                self.QuestionLabel.text = self.questions[questionNum].question
+                self.QuestionNumber.text = "\(self.i)/\(NumOfLevels)"
+                self.Answer1.setTitle(self.questions[questionNum].answers[0], forState: .Normal)
+                self.Answer2.setTitle(self.questions[questionNum].answers[1], forState: .Normal)
+                self.Answer3.setTitle(self.questions[questionNum].answers[2], forState: .Normal)
+                self.Answer4.setTitle(self.questions[questionNum].answers[3], forState: .Normal)
+                self.Answer1.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
+                self.Answer2.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
+                self.Answer3.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
+                self.Answer4.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
+                self.Answer1.enabled = true
+                self.Answer2.enabled = true
+                self.Answer3.enabled = true
+                self.Answer4.enabled = true
+            }
+        
         }
         else
         {
             if (lives>=1) {
-                timeCount = 11.0
+                timer.invalidate()
                 self.performSegueWithIdentifier("Ok", sender: self)
             }
             else
             {
-                timeCount = 11.0
+                timer.invalidate()
                 self.performSegueWithIdentifier("Fail", sender: self)
             }
 
         }
     }
 
+    
+    
+    
+    
     @IBAction func AnswerSelect(sender: UIButton) {
         let buttons = [Answer1, Answer2, Answer3, Answer4]
-        let Model = QuestionModel()
-        let questions = Model.questions
+        
         
         if (questions[questioNum].isGuessCorrect(sender.tag)){
             
             sender.setBackgroundImage(UIImage(named: "RightQuestion"), forState: .Normal)
-            questioNum += 1
+            questioNum = Int(arc4random_uniform(UInt32(8)))
+            i += 1
             let delay = 1.5 * Double(NSEC_PER_SEC)
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue()) {
@@ -103,22 +159,32 @@ class QuestionsViewController: UIViewController {
             
             }
         else{
-            sender.setBackgroundImage(UIImage(named: "WrongQuestion"), forState: .Normal)
-            let rightNum = questions[questioNum].correctAnswerIndex
-            for button in buttons
+            if (isCheating)
             {
-                if(button.tag == rightNum+1)
+                sender.setBackgroundImage(UIImage(named: "WrongQuestion"), forState: .Normal)
+                isCheating = false
+            }
+            else
+            {
+                sender.setBackgroundImage(UIImage(named: "WrongQuestion"), forState: .Normal)
+                let rightNum = questions[questioNum].correctAnswerIndex
+                for button in buttons
                 {
-                    button.setBackgroundImage(UIImage(named: "RightQuestion"), forState: .Normal)
+                    if(button.tag == rightNum+1)
+                    {
+                        button.setBackgroundImage(UIImage(named: "RightQuestion"), forState: .Normal)
+                    }
+                }
+                lives += -1
+                questioNum = Int(arc4random_uniform(UInt32(8)))
+                i += 1
+                let delay = 1.5 * Double(NSEC_PER_SEC)
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                dispatch_after(time, dispatch_get_main_queue()) {
+                    self.updateUI(self.questioNum)
                 }
             }
-            lives += -1
-            questioNum += 1
-            let delay = 1.5 * Double(NSEC_PER_SEC)
-            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            dispatch_after(time, dispatch_get_main_queue()) {
-                self.updateUI(self.questioNum)
-            }
+            
             
         }
         
@@ -133,11 +199,9 @@ class QuestionsViewController: UIViewController {
         if (timeCount <= 0)
         {
             
-            TimeLabel.text = "!!!"
+            TimeLabel.text = "00"
             
             let buttons = [Answer1, Answer2, Answer3, Answer4]
-            let Model = QuestionModel()
-            let questions = Model.questions
             let rightNum = questions[questioNum].correctAnswerIndex
             for button in buttons
             {
@@ -147,7 +211,8 @@ class QuestionsViewController: UIViewController {
                 }
             }
             lives += -1
-            questioNum += 1
+            i += 1
+            questioNum = Int(arc4random_uniform(UInt32(6)))
             let delay = 1.5 * Double(NSEC_PER_SEC)
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue()) {
@@ -164,15 +229,54 @@ class QuestionsViewController: UIViewController {
     func timeString(time:NSTimeInterval) -> String {
         
         let seconds = Int(time) % 60
-        if (seconds > 10)
-        {
-            return "!!!"
-        }
-        else
-        {
         return String(format:"%02i",Int(seconds))
-        }
     }
+    
+    @IBAction func HelpPlusLive(sender: UIButton) {
+        sender.enabled = false
+        timeCount = 11
+        isCheating = true
+        
+    }
+    
+    @IBAction func HelpCheat(sender: UIButton) {
+        sender.enabled = false
+        timeCount += 10
+        let delay = 7 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            sender.enabled = true
+        }
+
+    }
+    
+    @IBAction func Help5050(sender: UIButton) {
+        sender.enabled = false
+        timeCount = 11
+        let buttons = [Answer1, Answer2, Answer3, Answer4]
+        let rightNum = questions[questioNum].correctAnswerIndex
+        var but: Array<UIButton> = []
+        var i = 0
+        for button in buttons
+        {
+            if(button.tag != rightNum+1 && i<=1)
+            {
+                i += 1
+                but.append(button)
+                
+            }
+            
+        }
+        for bu in but
+        {
+            bu.enabled = false
+            bu.setTitle("", forState: .Normal)
+        }
+
+
+        
+    }
+    
     
     /*
     // MARK: - Navigation

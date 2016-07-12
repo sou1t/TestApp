@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import GameKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, GKGameCenterControllerDelegate {
+    @IBOutlet weak var score: UILabel!
+    var coins = NSUserDefaults.standardUserDefaults().valueForKey("coins") as? String ?? "0"
     @IBOutlet weak var n1: UIButton!
     @IBOutlet weak var n2: UIButton!
     @IBOutlet weak var n3: UIButton!
@@ -26,14 +28,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var n14: UIButton!
     @IBOutlet weak var n15: UIButton!
     @IBOutlet weak var n13: UIButton!
+    @IBOutlet weak var coinsLabel: UILabel!
     
     let def = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authLocalPlayer()
+        self.navigationController?.navigationBar.hidden = true
         let successArr = def.arrayForKey("SuccessLevels") as? Array<Int> ?? []
         let arrButton = [n1, n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16]
-        
+        score.text = NSUserDefaults.standardUserDefaults().valueForKey("score") as? String ?? "0"
+        coinsLabel.text = coins
         for number in successArr
         {
             for button in arrButton
@@ -47,10 +53,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    
+    @IBAction func RatingButtonClicked(sender: UIButton) {
+        let scoreNum = Int(score.text!)
+        saveHightscore(scoreNum!)
+        ShowLeaderboard()
+    }
+    
+    
+    
+    
+    
     @IBAction func LevelSelect(sender: UIButton) {
-        
-        def.setInteger((sender.tag-1)*10, forKey: "startValue")
-        def.setInteger(sender.tag*10, forKey: "topValue")
+        def.setInteger(sender.tag, forKey: "level")
+        def.setInteger(sender.tag*5, forKey: "numberOfLevels")
         self.performSegueWithIdentifier("goToQuestion", sender: self)
     }
 
@@ -63,6 +79,60 @@ class ViewController: UIViewController {
         return .LightContent
     }
 
+    @IBAction func GetGoldClicked(sender: AnyObject) {
+        self.performSegueWithIdentifier("MainToCoins", sender: self)
+    }
 
+    
+    //Init game center
+    func authLocalPlayer(){
+        
+        let localPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler = {
+            (viewController, error) -> Void in
+            if(viewController != nil){
+                self.presentViewController(viewController!, animated:true, completion: nil)
+            }
+            else
+            {
+                print(GKLocalPlayer.localPlayer().authenticated)
+            }
+        }
+    }
+    
+    //Save score to leaderboard
+    func saveHightscore(score:Int){
+        
+        //check if the user is signed in
+        if GKLocalPlayer.localPlayer().authenticated{
+            
+            let scoreReporter = GKScore(leaderboardIdentifier: "quiz.lead")
+            scoreReporter.value = Int64(score)
+            
+            let scoreArray: [GKScore] = [scoreReporter]
+            
+            GKScore.reportScores(scoreArray, withCompletionHandler: {(error : NSError?) -> Void in
+                if error != nil{
+                    print("error in save")
+                }
+            })
+        }
+    }
+    
+    //Show leaderboard
+    func ShowLeaderboard(){
+        let vc = self.view?.window?.rootViewController
+        let gc = GKGameCenterViewController()
+        gc.gameCenterDelegate = self
+        vc?.presentViewController(gc, animated: true, completion: nil)
+    }
+    
+    //Hide Game Center
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
 }
 

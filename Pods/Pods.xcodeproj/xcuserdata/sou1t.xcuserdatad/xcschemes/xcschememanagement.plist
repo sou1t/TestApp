@@ -4,18 +4,59 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SWXMLHash.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>mopub-ios-sdk.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>95AF0CC436A19F1437D8F66346AB0E1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97FE17FC1C1DFB671C5664F502E5F5C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AED1E4C1A6AA17E54E7BA458B855648A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF7F1D44009D56437CEBB350BD0C05F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>

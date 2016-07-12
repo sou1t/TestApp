@@ -1,10 +1,23 @@
 PODS:
-  - SWXMLHash (2.3.2)
+  - Alamofire (3.4.1)
+  - mopub-ios-sdk (4.7.0):
+    - mopub-ios-sdk/MoPubSDK (= 4.7.0)
+  - mopub-ios-sdk/MoPubSDK (4.7.0)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - SWXMLHash (~> 2.3)
+  - Alamofire (~> 3.4)
+  - mopub-ios-sdk
+  - SDWebImage (~> 3.8)
+  - SwiftyJSON (~> 2.3)
 
 SPEC CHECKSUMS:
-  SWXMLHash: 2f8c49af765718ad56020c4f875ec3ff22612f06
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  mopub-ios-sdk: e46b277cdb77b1745567b419742f77fed6865262
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

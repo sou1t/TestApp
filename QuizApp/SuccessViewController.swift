@@ -12,21 +12,25 @@ class SuccessViewController: UIViewController {
 
     let def = NSUserDefaults.standardUserDefaults()
     
-    
+    @IBOutlet weak var score: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         var ArrayOfSuccess:Array<Int>
         ArrayOfSuccess = def.arrayForKey("SuccessLevels") as? Array<Int> ?? []
-        let current = NSUserDefaults.standardUserDefaults().valueForKey("topValue") as? Int ?? 10
-        ArrayOfSuccess.append(current/10)
+        let current = NSUserDefaults.standardUserDefaults().valueForKey("level") as? Int ?? 10
+        ArrayOfSuccess.append(current)
         def.setObject(ArrayOfSuccess, forKey: "SuccessLevels")
+        let currentScore = NSUserDefaults.standardUserDefaults().valueForKey("score") as? String ?? "0"
+        NSUserDefaults.standardUserDefaults().setValue("\(Int(currentScore)!+50)", forKey: "score")
+        score.text = NSUserDefaults.standardUserDefaults().valueForKey("score") as? String ?? "0"
         // Do any additional setup after loading the view.
     }
     
     @IBAction func NextClicked(sender: AnyObject) {
-        let current = NSUserDefaults.standardUserDefaults().valueForKey("topValue") as? Int ?? 10
-        NSUserDefaults.standardUserDefaults().setInteger(current, forKey: "startValue")
-        NSUserDefaults.standardUserDefaults().setInteger(current+10, forKey: "topValue")
+        let current = NSUserDefaults.standardUserDefaults().valueForKey("level") as? Int ?? 10
+        def.setInteger((current+1)*5, forKey: "numberOfLevels")
+        NSUserDefaults.standardUserDefaults().setInteger(current+1, forKey: "level")
         self.performSegueWithIdentifier("SuccessToQuestion", sender: self)
     }
     

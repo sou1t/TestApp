@@ -9,10 +9,12 @@
 import UIKit
 
 class FailViewController: UIViewController {
-
+    @IBOutlet weak var score: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewDidAppear(true)
+        score.text = NSUserDefaults.standardUserDefaults().valueForKey("score") as? String ?? "0"
         // Do any additional setup after loading the view.
     }
 
@@ -34,14 +36,21 @@ class FailViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration(10, delay: 1.0, options: .AllowAnimatedContent , animations: {
+            
+            let image: UIImage = UIImage(named: "Block2Fail")!
+            let bgImage = UIImageView(image: image)
+            bgImage.frame = CGRectMake(0,0,60,60)
+            self.view.addSubview(bgImage)
+            let f1 = bgImage.frame
+
+            bgImage.center.y += f1.height
+            
+            }, completion: { finished in
+                                print("finished")
+                        })
     }
-    */
 
 }
