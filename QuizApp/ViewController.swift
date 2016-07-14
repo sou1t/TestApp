@@ -46,7 +46,7 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
             {
                 if (button.tag == number) {
                     button.setBackgroundImage(UIImage(named: "DoneCircle"), forState: .Normal)
-                    button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+                    button.setTitleColor(UIColor.blackColor(), forState: .Normal)
                 }
             }
         }
@@ -73,10 +73,6 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
     }
 
     @IBAction func GetGoldClicked(sender: AnyObject) {

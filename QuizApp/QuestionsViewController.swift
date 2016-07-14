@@ -10,6 +10,11 @@ import UIKit
 import SDWebImage
 
 class QuestionsViewController: UIViewController {
+    
+    @IBOutlet weak var BackGround: UIImageView!
+    
+    
+    @IBOutlet weak var QuestionConstraint: NSLayoutConstraint!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var QuestionNumber: UILabel!
     var coins = NSUserDefaults.standardUserDefaults().valueForKey("coins") as? String ?? "0"
@@ -26,7 +31,7 @@ class QuestionsViewController: UIViewController {
     let def = NSUserDefaults.standardUserDefaults()
     var questioNum = Int(arc4random_uniform(UInt32(8)))
     var numOfLevels = NSUserDefaults.standardUserDefaults().valueForKey("numberOfLevels") as? Int ?? 0
-    var lives = 3
+    var lives = 1
     var i = 1
     var isCheating = false
     //let toplevel = NSUserDefaults.standardUserDefaults().valueForKey("topValue") as? Int ?? 10
@@ -34,7 +39,7 @@ class QuestionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        def.setValue(self.QuestionConstraint.constant, forKey: "defaultPos")
         score.text = def.valueForKey("score") as? String ?? "0"
         CoinsLabel.text = coins
         updateUI(questioNum)
@@ -58,10 +63,6 @@ class QuestionsViewController: UIViewController {
     
     func updateUI(questionNum:Int){
         isCheating = false
-        Answer1.enabled = false
-        Answer2.enabled = false
-        Answer3.enabled = false
-        Answer4.enabled = false
         if (numOfLevels>0 && lives>=1) {
         numOfLevels += -1
         timeCount = 13.0
@@ -94,15 +95,33 @@ class QuestionsViewController: UIViewController {
                 }
                 if(self.questions[questionNum].photoURL != "no")
                 {
-                    self.BgForPic.hidden = false
+                    print(self.QuestionLabel.center.y)
+                    
                     self.Photo.hidden = false
                     let url = NSURL(string: self.questions[questionNum].photoURL)
                     self.Photo.sd_setImageWithURL(url)
+                    UIView.animateWithDuration(0.5, delay: 0.5, options: .AllowAnimatedContent , animations: {
+                        self.def.setValue(self.QuestionLabel.center.y, forKey: "QuestCenter")
+                        
+                        self.QuestionConstraint.constant = self.def.valueForKey("defaultPos") as? CGFloat ?? 0.0
+                        
+                        }, completion: { finished in
+                            print("finished")
+                    })
                     
                 }
                 else
                 {
-                    self.BgForPic.hidden = true
+                    
+                    UIView.animateWithDuration(0.5, delay: 0.5, options: .AllowAnimatedContent , animations: {
+                        self.def.setValue(self.QuestionLabel.center.y, forKey: "QuestCenter")
+                        
+                        self.QuestionConstraint.constant = self.view.center.y-70.0
+                        
+                        }, completion: { finished in
+                            print("finished")
+                    })
+                    
                     self.Photo.hidden = true
                 }
                 let NumOfLevels = NSUserDefaults.standardUserDefaults().valueForKey("numberOfLevels") as? Int ?? 0
@@ -143,8 +162,11 @@ class QuestionsViewController: UIViewController {
     
     
     @IBAction func AnswerSelect(sender: UIButton) {
+        Answer1.enabled = false
+        Answer2.enabled = false
+        Answer3.enabled = false
+        Answer4.enabled = false
         let buttons = [Answer1, Answer2, Answer3, Answer4]
-        
         
         if (questions[questioNum].isGuessCorrect(sender.tag)){
             
@@ -172,13 +194,42 @@ class QuestionsViewController: UIViewController {
                 {
                     if(button.tag == rightNum+1)
                     {
-                        button.setBackgroundImage(UIImage(named: "RightQuestion"), forState: .Normal)
+                        let delay = 0.75 * Double(NSEC_PER_SEC)
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        dispatch_after(time, dispatch_get_main_queue()) {
+                            button.setBackgroundImage(UIImage(named: "RightQuestion"), forState: .Normal)
+                            let delay2 = 0.4 * Double(NSEC_PER_SEC)
+                            let time2 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
+                            dispatch_after(time2, dispatch_get_main_queue()) {
+                                button.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
+                                let time3 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
+                                dispatch_after(time3, dispatch_get_main_queue()) {
+                                    button.setBackgroundImage(UIImage(named: "RightQuestion"), forState: .Normal)
+                                    let time4 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
+                                    dispatch_after(time4, dispatch_get_main_queue()) {
+                                        button.setBackgroundImage(UIImage(named: "QuestionButton"), forState: .Normal)
+                                        let time5 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
+                                        dispatch_after(time5, dispatch_get_main_queue()) {
+                                            button.setBackgroundImage(UIImage(named: "RightQuestion"), forState: .Normal)
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+                        }
+
+                        
+                        
+                        
+                        
                     }
                 }
                 lives += -1
                 questioNum = Int(arc4random_uniform(UInt32(8)))
                 i += 1
-                let delay = 1.5 * Double(NSEC_PER_SEC)
+                let delay = 2.9 * Double(NSEC_PER_SEC)
                 let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
                 dispatch_after(time, dispatch_get_main_queue()) {
                     self.updateUI(self.questioNum)
@@ -189,10 +240,7 @@ class QuestionsViewController: UIViewController {
         }
         
     }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
-    }
+
 
     func timerDidEnd(timer:NSTimer){
         timeCount = timeCount - timeInterval

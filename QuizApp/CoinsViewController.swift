@@ -26,6 +26,9 @@ class CoinsViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
     
     @IBOutlet weak var CoinsLabel: UILabel!
     
+    @IBAction func Exit(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         Get10Coins.enabled = false
@@ -198,10 +201,7 @@ class CoinsViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
         print("finish transaction")
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
-    }
-    
+
     func paymentQueue(queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction]) {
         print("remove trans")
     }
