@@ -8,6 +8,7 @@
 
 import UIKit
 import GameKit
+import GoogleMobileAds
 
 class ViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var score: UILabel!
@@ -29,17 +30,129 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var n15: UIButton!
     @IBOutlet weak var n13: UIButton!
     @IBOutlet weak var coinsLabel: UILabel!
+
+    //constants
+    @IBOutlet weak var Const2to1: NSLayoutConstraint!
+    @IBOutlet weak var Constant4up: NSLayoutConstraint!
+    @IBOutlet weak var Const6up: NSLayoutConstraint!
+    @IBOutlet weak var Const5up: NSLayoutConstraint!
+    @IBOutlet weak var Const7up: NSLayoutConstraint!
+    @IBOutlet weak var Const10down: NSLayoutConstraint!
+    @IBOutlet weak var Const8up: NSLayoutConstraint!
+    @IBOutlet weak var Const9up: NSLayoutConstraint!
+    @IBOutlet weak var Const12down: NSLayoutConstraint!
+    @IBOutlet weak var Const11down: NSLayoutConstraint!
+    @IBOutlet weak var Const13down: NSLayoutConstraint!
+    @IBOutlet weak var Const15to16: NSLayoutConstraint!
+    @IBOutlet weak var Const14down: NSLayoutConstraint!
+    @IBOutlet weak var Const15down: NSLayoutConstraint!
+    @IBOutlet weak var Const16down: NSLayoutConstraint!
+    @IBOutlet weak var Const6left: NSLayoutConstraint!
+    @IBOutlet weak var Const12left: NSLayoutConstraint!
+    @IBOutlet weak var Const8left: NSLayoutConstraint!
+    @IBOutlet weak var Const14left: NSLayoutConstraint!
+    var startTime: CFAbsoluteTime!
+    
+    
     
     let def = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(DeviceType.IS_IPHONE_4_OR_LESS){
+            
+            UIView.animateWithDuration(0.01, delay: 0.0, options: .CurveLinear , animations: {
+                
+                self.Const2to1.constant += 25.0
+                self.Constant4up.constant += 23.0
+                self.Const6up.constant += 47.0
+                self.Const5up.constant += 47.0
+                self.Const7up.constant += 73.0
+                self.Const10down.constant += 73.0
+                self.Const8up.constant += 90.0
+                self.Const9up.constant += 90.0
+                self.Const12down.constant += 50.0
+                self.Const11down.constant += 50.0
+                self.Const13down.constant += 23.0
+                self.Const14down.constant += 6.0
+                self.Const15down.constant += 6.0
+                self.Const15to16.constant += 25.0
+                self.Const16down.constant += 6.0
+                self.Const6left.constant += 25.0
+                self.Const12left.constant += 25.0
+                self.Const8left.constant += 25.0
+                self.Const14left.constant += 9.0
+                
+                }, completion: { finished in
+                    print("iphone4.OK!")
+            })
+        }
+        if(DeviceType.IS_IPHONE_5){
+            UIView.animateWithDuration(0.01, delay: 0.0, options: .CurveLinear , animations: {
+                
+                self.Const2to1.constant += 25.0
+                self.Constant4up.constant += 12.0
+                self.Const6up.constant += 26.0
+                self.Const5up.constant += 26.0
+                self.Const7up.constant += 40.0
+                self.Const10down.constant += 37.0
+                self.Const8up.constant += 47.0
+                self.Const9up.constant += 47.0
+                self.Const12down.constant += 29.0
+                self.Const11down.constant += 29.0
+                self.Const13down.constant += 23.0
+                self.Const14down.constant += 6.0
+                self.Const15down.constant += 6.0
+                self.Const15to16.constant += 25.0
+                self.Const16down.constant += 6.0
+                self.Const6left.constant += 25.0
+                self.Const12left.constant += 25.0
+                self.Const8left.constant += 25.0
+                self.Const14left.constant += 9.0
+                
+                }, completion: { finished in
+                    print("iphone5.OK!")
+            })
+        }
+        if(DeviceType.IS_IPHONE_6P){
+            UIView.animateWithDuration(0.01, delay: 0.0, options: .CurveLinear , animations: {
+                
+                self.Const2to1.constant += -25.0
+                self.Constant4up.constant += -10.0
+                self.Const6up.constant += -17.0
+                self.Const5up.constant += -17.0
+                self.Const7up.constant += -20.0
+                self.Const10down.constant += -27.0
+                self.Const8up.constant += -34.0
+                self.Const9up.constant += -34.0
+                self.Const12down.constant += -17.0
+                self.Const11down.constant += -17.0
+                self.Const13down.constant += -10.0
+                self.Const15to16.constant += 25.0
+                self.Const6left.constant += -25.0
+                self.Const12left.constant += -25.0
+                self.Const8left.constant += -25.0
+                self.Const14left.constant += -25.0
+                self.Const15to16.constant += -30.0
+                
+                }, completion: { finished in
+                    print("iphone6p.OK!")
+            })
+        }
+        
         authLocalPlayer()
         self.navigationController?.navigationBar.hidden = true
         let successArr = def.arrayForKey("SuccessLevels") as? Array<Int> ?? []
         let arrButton = [n1, n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16]
         score.text = NSUserDefaults.standardUserDefaults().valueForKey("score") as? String ?? "0"
-        coinsLabel.text = coins
+        if(successArr.isEmpty)
+        {
+            for button in arrButton{
+                if(button.tag != 1){
+                    button.enabled = false
+                }
+            }
+        }
         for number in successArr
         {
             for button in arrButton
@@ -48,9 +161,51 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
                     button.setBackgroundImage(UIImage(named: "DoneCircle"), forState: .Normal)
                     button.setTitleColor(UIColor.blackColor(), forState: .Normal)
                 }
+                if (button.tag >= Int(successArr.maxElement()!+2)){
+                    button.enabled = false
+                }
             }
         }
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let dateNow = NSDate()
+        if((def.valueForKey("savedDate") == nil)){
+            def.setValue(dateNow.timeIntervalSince1970, forKey: "savedDate")
+            let new = Int(self.coins)! + 10
+            self.def.setValue("\(new)", forKey: "coins")
+            let refreshAlert = UIAlertController(title: "БОНУС", message: "Вы получаете ежедневный бонус - 10 золотых монет", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "ОК", style: .Default, handler: { (action: UIAlertAction!) in
+                print("ok clicked")
+            }))
+            presentViewController(refreshAlert, animated: true, completion: nil)
+        }
+
+        let Saved = def.valueForKey("savedDate") as? NSTimeInterval ?? dateNow.timeIntervalSince1970
+        
+        let NowInerval = dateNow.timeIntervalSince1970
+        let deference = NowInerval - Saved
+        let interval: NSTimeInterval = 24*60*60
+        print("!!!!!!!!!!!!\(deference)!!!!!!!!!!!!!!!!")
+        if (deference >= interval){
+            def.setValue(dateNow.timeIntervalSince1970, forKey: "savedDate")
+            let new = Int(self.coins)! + 10
+            self.def.setValue("\(new)", forKey: "coins")
+            let refreshAlert = UIAlertController(title: "БОНУС", message: "Вы получаете ежедневный бонус - 10 золотых монет", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "ОК", style: .Default, handler: { (action: UIAlertAction!) in
+                print("ok clicked")
+                
+            }))
+            presentViewController(refreshAlert, animated: true, completion: nil)
+        }
+        
+        UIView.animateWithDuration(1.5, delay: 4.0, options: .AllowAnimatedContent , animations: {
+            self.coinsLabel.text = self.def.valueForKey("coins") as? String ?? "0"
+            
+            }, completion: { finished in
+                print("finished")
+        })
     }
     
     
@@ -130,5 +285,30 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     
+    
+}
+
+enum UIUserInterfaceIdiom : Int
+{
+    case Unspecified
+    case Phone
+    case Pad
+}
+
+struct ScreenSize
+{
+    static let SCREEN_WIDTH         = UIScreen.mainScreen().bounds.size.width
+    static let SCREEN_HEIGHT        = UIScreen.mainScreen().bounds.size.height
+    static let SCREEN_MAX_LENGTH    = max(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
+    static let SCREEN_MIN_LENGTH    = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
+}
+
+struct DeviceType
+{
+    static let IS_IPHONE_4_OR_LESS  = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH < 568.0
+    static let IS_IPHONE_5          = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 568.0
+    static let IS_IPHONE_6          = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 667.0
+    static let IS_IPHONE_6P         = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0
+    static let IS_IPAD              = UIDevice.currentDevice().userInterfaceIdiom == .Pad && ScreenSize.SCREEN_MAX_LENGTH == 1024.0
 }
 

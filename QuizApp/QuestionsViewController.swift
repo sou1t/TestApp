@@ -8,11 +8,16 @@
 
 import UIKit
 import SDWebImage
+import GoogleMobileAds
+import MoPub
 
-class QuestionsViewController: UIViewController {
+
+class QuestionsViewController: UIViewController, MPInterstitialAdControllerDelegate {
     
     @IBOutlet weak var BackGround: UIImageView!
     
+    
+    var interstitial: GADInterstitial!
     
     @IBOutlet weak var QuestionConstraint: NSLayoutConstraint!
     @IBOutlet weak var score: UILabel!
@@ -34,11 +39,20 @@ class QuestionsViewController: UIViewController {
     var lives = 1
     var i = 1
     var isCheating = false
+    
+    // TODO: Replace this test id with your personal ad unit id
+    var interstitial1: MPInterstitialAdController =
+        MPInterstitialAdController(forAdUnitId: "095a207910074051b61c64c78474069f")
+
     //let toplevel = NSUserDefaults.standardUserDefaults().valueForKey("topValue") as? Int ?? 10
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.interstitial1.delegate = self
+        // Pre-fetch the ad up front
+        self.interstitial1.loadAd()
+        createAndLoadInterstitial()
         def.setValue(self.QuestionConstraint.constant, forKey: "defaultPos")
         score.text = def.valueForKey("score") as? String ?? "0"
         CoinsLabel.text = coins
@@ -146,11 +160,28 @@ class QuestionsViewController: UIViewController {
         {
             if (lives>=1) {
                 timer.invalidate()
+                let delay = 0.5 * Double(NSEC_PER_SEC)
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                dispatch_after(time, dispatch_get_main_queue()) {
+                    if self.interstitial.isReady {
+                        self.interstitial.presentFromRootViewController(self)
+                    } else {
+                        print("Ad wasn't ready")
+                    }
+                    
+                }
                 self.performSegueWithIdentifier("Ok", sender: self)
             }
             else
             {
                 timer.invalidate()
+                let delay = 0.5 * Double(NSEC_PER_SEC)
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                dispatch_after(time, dispatch_get_main_queue()) {
+                    if (self.interstitial1.ready) {
+                    self.interstitial1.showFromViewController(self)
+                    }}
+
                 self.performSegueWithIdentifier("Fail", sender: self)
             }
 
@@ -290,7 +321,7 @@ class QuestionsViewController: UIViewController {
     @IBAction func HelpCheat(sender: UIButton) {
         sender.enabled = false
         timeCount += 10
-        let delay = 7 * Double(NSEC_PER_SEC)
+        let delay = 7.0 * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
             sender.enabled = true
@@ -325,7 +356,13 @@ class QuestionsViewController: UIViewController {
         
     }
     
-    
+    func createAndLoadInterstitial() {
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-8901960017865562/4264150132")
+        let request = GADRequest()
+        interstitial.loadRequest(request)
+
+    }
+
     /*
     // MARK: - Navigation
 

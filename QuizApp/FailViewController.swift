@@ -15,6 +15,8 @@ class FailViewController: UIViewController {
     @IBOutlet weak var bg3: UIImageView!
     @IBOutlet weak var bg4: UIImageView!
     @IBOutlet weak var bg5: UIImageView!
+    
+    
     var timer:NSTimer{
         return NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: #selector(FailViewController.Animate), userInfo: nil, repeats: true)
     }
@@ -31,6 +33,7 @@ class FailViewController: UIViewController {
         score.text = NSUserDefaults.standardUserDefaults().valueForKey("score") as? String ?? "0"
         self.timer.fire()
         
+
         
 
         // Do any additional setup after loading the view.
@@ -78,5 +81,8 @@ class FailViewController: UIViewController {
         
         
     }
+    
+
+
 
 }

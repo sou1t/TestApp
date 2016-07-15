@@ -8,13 +8,15 @@
 
 import UIKit
 import StoreKit
+import MoPub
 
 
-class CoinsViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+class CoinsViewController: UIViewController, MPInterstitialAdControllerDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver {
 
     var coins = NSUserDefaults.standardUserDefaults().valueForKey("coins") as? String ?? "0"
     
     
+    @IBOutlet weak var FreeCoins: UIButton!
     @IBOutlet weak var price1: UILabel!
     @IBOutlet weak var price2: UILabel!
     @IBOutlet weak var price3: UILabel!
@@ -25,16 +27,27 @@ class CoinsViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
     @IBOutlet weak var RestoreButton: UIButton!
     
     @IBOutlet weak var CoinsLabel: UILabel!
+
+    var interstitial: MPInterstitialAdController =
+        MPInterstitialAdController(forAdUnitId: "095a207910074051b61c64c78474069f")
+
+
     
     @IBAction func Exit(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.interstitial.delegate = self
+        // Pre-fetch the ad up front
+        self.interstitial.loadAd()
+
         Get10Coins.enabled = false
         Get50Coins.enabled = false
         Get100Coins.enabled = false
+        FreeCoins.enabled = false
         RestoreButton.enabled = false
+
         price1.hidden = true
         price2.hidden = true
         price3.hidden = true
@@ -150,6 +163,7 @@ class CoinsViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
         Get50Coins.enabled = true
         Get100Coins.enabled = true
         RestoreButton.enabled = true
+        FreeCoins.enabled = true
         price1.hidden = false
         price2.hidden = false
         price3.hidden = false
@@ -230,5 +244,22 @@ class CoinsViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
 
         }
     }
+    
+    @IBAction func FreeCoins(sender: AnyObject) {
+        let delay = 0.5 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            if (self.interstitial.ready) {
+                let new = Int(self.coins)! + 5
+                NSUserDefaults.standardUserDefaults().setValue("\(new)", forKey: "coins")
+                self.CoinsLabel.text = "\(new)"
+                self.interstitial.showFromViewController(self)
+            }
+        }
+
+        
+    }
+    
+    
     
 }

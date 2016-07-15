@@ -26,6 +26,7 @@
             <string>ProximaNova-Black</string>
             <string>ProximaNova-Black</string>
             <string>ProximaNova-Black</string>
+            <string>ProximaNova-Black</string>
         </mutableArray>
         <mutableArray key="proximanova-bold.otf">
             <string>ProximaNova-Bold</string>
@@ -138,11 +139,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LevelLine" translatesAutoresizingMaskIntoConstraints="NO" id="J51-8V-eFu">
                                 <rect key="frame" x="37" y="112" width="301" height="514"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="J51-8V-eFu" secondAttribute="height" multiplier="301:514" id="Qsx-C3-eY8"/>
+                                    <constraint firstAttribute="width" secondItem="J51-8V-eFu" secondAttribute="height" multiplier="301:514" id="4Se-iM-MzF"/>
+                                    <constraint firstAttribute="height" constant="514" id="aGN-8c-r2G"/>
+                                    <constraint firstAttribute="width" constant="301" id="mjW-nR-7M2"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPq-zJ-FqM">
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPq-zJ-FqM">
                                 <rect key="frame" x="313" y="409" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="O5Y-DM-wAS"/>
+                                    <constraint firstAttribute="width" secondItem="oPq-zJ-FqM" secondAttribute="height" multiplier="6:7" id="e06-Xo-JAE"/>
+                                    <constraint firstAttribute="height" constant="42" id="lyb-w9-QpD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="10" backgroundImage="DefaultCircle">
@@ -152,8 +160,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T8W-C8-h2v"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeE-Dc-I7G">
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeE-Dc-I7G">
                                 <rect key="frame" x="255" y="344" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="5Ve-YE-94r"/>
+                                    <constraint firstAttribute="width" secondItem="BeE-Dc-I7G" secondAttribute="height" multiplier="6:7" id="Eao-SU-gWm"/>
+                                    <constraint firstAttribute="height" constant="42" id="bOh-aw-eiY"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="9" backgroundImage="DefaultCircle">
@@ -163,8 +176,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mwl-Fg-ztf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drG-Bn-wgf">
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drG-Bn-wgf">
                                 <rect key="frame" x="255" y="469" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="3KQ-eq-QGm"/>
+                                    <constraint firstAttribute="width" secondItem="drG-Bn-wgf" secondAttribute="height" multiplier="6:7" id="a5P-mk-Aaq"/>
+                                    <constraint firstAttribute="width" constant="36" id="cJt-K9-2LJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="11" backgroundImage="DefaultCircle">
@@ -174,8 +192,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBY-ci-hT6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njv-kp-yij">
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njv-kp-yij">
                                 <rect key="frame" x="139" y="344" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="njv-kp-yij" secondAttribute="height" multiplier="6:7" id="32n-2X-AGZ"/>
+                                    <constraint firstAttribute="width" constant="36" id="44K-dZ-v5T"/>
+                                    <constraint firstAttribute="height" constant="42" id="58w-LR-0aq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="8" backgroundImage="DefaultCircle">
@@ -185,8 +208,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rhN-v1-5gR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSH-93-auf">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSH-93-auf">
                                 <rect key="frame" x="255" y="220" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="4xB-Vv-XNN"/>
+                                    <constraint firstAttribute="width" secondItem="xSH-93-auf" secondAttribute="height" multiplier="6:7" id="LPq-pR-r83"/>
+                                    <constraint firstAttribute="width" constant="36" id="abM-cx-Wyd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="5" backgroundImage="DefaultCircle">
@@ -196,8 +224,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VMU-me-zXc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxZ-ch-nG1">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxZ-ch-nG1">
                                 <rect key="frame" x="139" y="220" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UxZ-ch-nG1" secondAttribute="height" multiplier="6:7" id="82k-iU-vN5"/>
+                                    <constraint firstAttribute="height" constant="42" id="9lZ-rv-tN7"/>
+                                    <constraint firstAttribute="width" constant="36" id="q87-Ve-E1H"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="6" backgroundImage="DefaultCircle">
@@ -207,8 +240,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FsL-GK-wlA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIq-s2-cw6">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIq-s2-cw6">
                                 <rect key="frame" x="313" y="157" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lIq-s2-cw6" secondAttribute="height" multiplier="6:7" id="ElU-81-Wu3"/>
+                                    <constraint firstAttribute="width" constant="36" id="Mwx-Ir-HLo"/>
+                                    <constraint firstAttribute="height" constant="42" id="vPL-n6-zZl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="4" backgroundImage="DefaultCircle">
@@ -218,8 +256,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ML4-IM-ea9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrY-rk-7Py">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrY-rk-7Py">
                                 <rect key="frame" x="255" y="95" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="9iN-iH-Nyl"/>
+                                    <constraint firstAttribute="width" secondItem="HrY-rk-7Py" secondAttribute="height" multiplier="6:7" id="iKG-cW-5v2"/>
+                                    <constraint firstAttribute="height" constant="42" id="lwA-cy-f7n"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="3" backgroundImage="DefaultCircle">
@@ -229,8 +272,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eit-3C-rfs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jmw-7d-KPw">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jmw-7d-KPw">
                                 <rect key="frame" x="139" y="95" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Jmw-7d-KPw" secondAttribute="height" multiplier="6:7" id="16U-o4-PwQ"/>
+                                    <constraint firstAttribute="width" constant="36" id="Lke-nt-GLc"/>
+                                    <constraint firstAttribute="height" constant="42" id="bw3-yX-DAx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="2" backgroundImage="DefaultCircle">
@@ -240,8 +288,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcF-9K-s5m"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcU-Tz-EYM">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcU-Tz-EYM">
                                 <rect key="frame" x="24" y="95" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="BTP-R1-8YF"/>
+                                    <constraint firstAttribute="height" constant="42" id="Ume-bZ-NCW"/>
+                                    <constraint firstAttribute="width" secondItem="BcU-Tz-EYM" secondAttribute="height" multiplier="6:7" id="gel-M4-2fV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="1" backgroundImage="DefaultCircle">
@@ -251,8 +304,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qg7-V3-u7Z"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9H-yS-xUZ">
+                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9H-yS-xUZ">
                                 <rect key="frame" x="25" y="539" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="AWd-ih-PdM"/>
+                                    <constraint firstAttribute="height" constant="42" id="C1d-2o-y0y"/>
+                                    <constraint firstAttribute="width" secondItem="c9H-yS-xUZ" secondAttribute="height" multiplier="6:7" id="cLa-20-fFm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="13" backgroundImage="DefaultCircle">
@@ -262,8 +320,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eyM-G9-Aka"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="15" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdd-hG-bJJ">
+                            <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdd-hG-bJJ">
                                 <rect key="frame" x="199" y="594" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="ZbW-f1-S51"/>
+                                    <constraint firstAttribute="width" secondItem="Pdd-hG-bJJ" secondAttribute="height" multiplier="6:7" id="c8L-gl-Ied"/>
+                                    <constraint firstAttribute="width" constant="36" id="wqk-pl-hrx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="15" backgroundImage="DefaultCircle">
@@ -273,8 +336,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F1d-YY-4xx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99A-mV-mQL">
+                            <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99A-mV-mQL">
                                 <rect key="frame" x="96" y="594" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="3nU-Ea-CQu"/>
+                                    <constraint firstAttribute="width" secondItem="99A-mV-mQL" secondAttribute="height" multiplier="6:7" id="dup-4t-4TE"/>
+                                    <constraint firstAttribute="width" constant="36" id="mOm-ne-owh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="14" backgroundImage="DefaultCircle">
@@ -284,19 +352,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F1L-eV-kAj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v28-OU-FqK">
-                                <rect key="frame" x="140" y="469" width="36" height="42"/>
-                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
-                                <state key="normal" title="12" backgroundImage="DefaultCircle">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UYx-zQ-4DA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="16" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNq-8u-pTH">
+                            <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNq-8u-pTH">
                                 <rect key="frame" x="308" y="594" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="C7w-qT-f14"/>
+                                    <constraint firstAttribute="height" constant="42" id="h2u-nh-JF4"/>
+                                    <constraint firstAttribute="width" secondItem="yNq-8u-pTH" secondAttribute="height" multiplier="6:7" id="l1a-kF-o3e"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="16" backgroundImage="DefaultCircle">
@@ -306,8 +368,13 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LWa-Ow-5H1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zj2-Jm-Aus">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zj2-Jm-Aus">
                                 <rect key="frame" x="25" y="289" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Zj2-Jm-Aus" secondAttribute="height" multiplier="6:7" id="GBl-OH-dRm"/>
+                                    <constraint firstAttribute="width" constant="36" id="IbH-V7-CcG"/>
+                                    <constraint firstAttribute="height" constant="42" id="fDh-SO-2Wk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
                                 <state key="normal" title="7" backgroundImage="DefaultCircle">
@@ -317,33 +384,83 @@
                                     <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C9l-y6-hXd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v28-OU-FqK">
+                                <rect key="frame" x="140" y="469" width="36" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="KPD-xM-vpw"/>
+                                    <constraint firstAttribute="width" constant="36" id="aLQ-Mv-7hS"/>
+                                    <constraint firstAttribute="width" secondItem="v28-OU-FqK" secondAttribute="height" multiplier="6:7" id="gMz-UN-0Lp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="23"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="2"/>
+                                <state key="normal" title="12" backgroundImage="DefaultCircle">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="LevelSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UYx-zQ-4DA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="c9H-yS-xUZ" firstAttribute="top" secondItem="J51-8V-eFu" secondAttribute="bottom" constant="-87" id="087-ri-xGs"/>
                             <constraint firstItem="4Q4-ha-0HG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="1pk-Gf-vEq"/>
                             <constraint firstItem="mju-K7-m0S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4XX-xw-ihK"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="leading" secondItem="c9H-yS-xUZ" secondAttribute="trailing" constant="-24" id="4kX-U0-bmZ"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="xSH-93-auf" secondAttribute="bottom" constant="-150" id="94B-n9-NVW"/>
+                            <constraint firstItem="99A-mV-mQL" firstAttribute="top" secondItem="J51-8V-eFu" secondAttribute="bottom" constant="-32" id="9Zm-EU-20Q"/>
+                            <constraint firstItem="oPq-zJ-FqM" firstAttribute="leading" secondItem="J51-8V-eFu" secondAttribute="trailing" constant="-25" id="AAX-w0-frx"/>
                             <constraint firstItem="Z1F-ey-osG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="AFA-EC-Y48"/>
+                            <constraint firstItem="drG-Bn-wgf" firstAttribute="top" secondItem="J51-8V-eFu" secondAttribute="bottom" constant="-157" id="AbE-bn-o5N"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="J51-8V-eFu" secondAttribute="bottom" constant="41" id="BMA-hf-KdS"/>
+                            <constraint firstItem="Pdd-hG-bJJ" firstAttribute="top" secondItem="J51-8V-eFu" secondAttribute="bottom" constant="-32" id="F0V-0F-F80"/>
                             <constraint firstItem="RjQ-Vb-uv1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="11" id="GaC-Si-hL4"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="Jmw-7d-KPw" secondAttribute="bottom" constant="-25" id="Gxd-pe-B0D"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="HrY-rk-7Py" secondAttribute="bottom" constant="-25" id="HuV-NN-bX8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2Bb-TE-g9g" secondAttribute="bottom" id="Iaz-1A-eUW"/>
                             <constraint firstAttribute="trailing" secondItem="mju-K7-m0S" secondAttribute="trailing" id="JCu-Qj-Ovy"/>
                             <constraint firstAttribute="trailing" secondItem="2Bb-TE-g9g" secondAttribute="trailing" id="JJf-8r-muL"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="37" id="JvJ-Zi-JGN"/>
+                            <constraint firstItem="oPq-zJ-FqM" firstAttribute="top" secondItem="J51-8V-eFu" secondAttribute="bottom" constant="-217" id="KOy-q2-0QA"/>
                             <constraint firstItem="Z1F-ey-osG" firstAttribute="top" secondItem="mju-K7-m0S" secondAttribute="bottom" constant="-41" id="Lqi-kh-RQt"/>
+                            <constraint firstItem="xSH-93-auf" firstAttribute="leading" secondItem="J51-8V-eFu" secondAttribute="trailing" constant="-83" id="M2t-rn-t89"/>
                             <constraint firstItem="g4B-6R-YnX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="McB-Hw-WW4"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="mju-K7-m0S" secondAttribute="bottom" constant="42" id="NfE-dG-gkN"/>
                             <constraint firstItem="g4B-6R-YnX" firstAttribute="top" secondItem="mju-K7-m0S" secondAttribute="bottom" constant="-42" id="OTo-Uh-rYA"/>
+                            <constraint firstItem="BeE-Dc-I7G" firstAttribute="leading" secondItem="J51-8V-eFu" secondAttribute="trailing" constant="-83" id="PSn-2n-0pE"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="leading" secondItem="Zj2-Jm-Aus" secondAttribute="trailing" constant="-24" id="Pkf-ff-7Ym"/>
                             <constraint firstAttribute="trailing" secondItem="4Q4-ha-0HG" secondAttribute="trailing" id="Pqz-Bu-ipm"/>
+                            <constraint firstItem="v28-OU-FqK" firstAttribute="top" secondItem="J51-8V-eFu" secondAttribute="bottom" constant="-157" id="QIq-di-79a"/>
                             <constraint firstItem="2Bb-TE-g9g" firstAttribute="top" secondItem="mju-K7-m0S" secondAttribute="bottom" id="QdH-k8-h6G"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="leading" secondItem="UxZ-ch-nG1" secondAttribute="trailing" constant="-138" id="QiI-Gv-JoU"/>
+                            <constraint firstAttribute="trailing" secondItem="J51-8V-eFu" secondAttribute="trailing" constant="37" id="Sjf-LX-SKI"/>
                             <constraint firstItem="GDN-aK-Cei" firstAttribute="leading" secondItem="RjQ-Vb-uv1" secondAttribute="trailing" constant="8" id="TTW-vM-Ale"/>
                             <constraint firstItem="2Bb-TE-g9g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ybv-nP-fxd"/>
-                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="mju-K7-m0S" secondAttribute="bottom" constant="42" id="Zp3-vW-FAi"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="leading" secondItem="Jmw-7d-KPw" secondAttribute="trailing" constant="-138" id="b5B-Sa-3Fx"/>
                             <constraint firstItem="RjQ-Vb-uv1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="6" id="cqu-Ea-cdR"/>
                             <constraint firstItem="GDN-aK-Cei" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="11" id="def-hn-M0p"/>
                             <constraint firstItem="mju-K7-m0S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dwI-lg-fe9"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="UxZ-ch-nG1" secondAttribute="bottom" constant="-150" id="eqZ-dW-h5m"/>
                             <constraint firstItem="4Q4-ha-0HG" firstAttribute="leading" secondItem="Z1F-ey-osG" secondAttribute="trailing" constant="8" id="f83-Mr-q9l"/>
+                            <constraint firstItem="lIq-s2-cw6" firstAttribute="leading" secondItem="J51-8V-eFu" secondAttribute="trailing" constant="-25" id="gLu-aQ-V7S"/>
                             <constraint firstItem="RjQ-Vb-uv1" firstAttribute="top" secondItem="mju-K7-m0S" secondAttribute="bottom" constant="-39" id="gaq-mV-yBj"/>
                             <constraint firstItem="g4B-6R-YnX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hhw-uq-Gdp"/>
-                            <constraint firstItem="J51-8V-eFu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qkh-ez-bAl"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="J51-8V-eFu" secondAttribute="bottom" constant="41" id="vvU-aF-1rz"/>
+                            <constraint firstItem="yNq-8u-pTH" firstAttribute="leading" secondItem="J51-8V-eFu" secondAttribute="trailing" constant="-30" id="iIQ-Hn-aVl"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="leading" secondItem="v28-OU-FqK" secondAttribute="trailing" constant="-139" id="igg-RX-oy4"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="njv-kp-yij" secondAttribute="bottom" constant="-274" id="iuw-OI-PgN"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="BcU-Tz-EYM" secondAttribute="bottom" constant="-25" id="l4N-0V-uBe"/>
+                            <constraint firstItem="drG-Bn-wgf" firstAttribute="leading" secondItem="J51-8V-eFu" secondAttribute="trailing" constant="-83" id="lIo-iu-lHT"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="leading" secondItem="99A-mV-mQL" secondAttribute="trailing" constant="-95" id="mgV-0D-I4T"/>
+                            <constraint firstItem="Pdd-hG-bJJ" firstAttribute="leading" secondItem="J51-8V-eFu" secondAttribute="trailing" constant="-139" id="mkI-vc-QjG"/>
+                            <constraint firstItem="yNq-8u-pTH" firstAttribute="top" secondItem="J51-8V-eFu" secondAttribute="bottom" constant="-32" id="nD2-DR-6d7"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="BeE-Dc-I7G" secondAttribute="bottom" constant="-274" id="nuM-yZ-3T5"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="leading" secondItem="njv-kp-yij" secondAttribute="trailing" constant="-138" id="o2A-Dw-Nld"/>
+                            <constraint firstItem="HrY-rk-7Py" firstAttribute="leading" secondItem="J51-8V-eFu" secondAttribute="trailing" constant="-83" id="uYO-vq-4E3"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="Zj2-Jm-Aus" secondAttribute="bottom" constant="-219" id="ul8-dM-E4z"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uvV-l1-1vM"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="top" secondItem="lIq-s2-cw6" secondAttribute="bottom" constant="-87" id="xf1-wv-u1f"/>
                             <constraint firstItem="4Q4-ha-0HG" firstAttribute="top" secondItem="mju-K7-m0S" secondAttribute="bottom" constant="-41" id="zPB-pR-eIT"/>
+                            <constraint firstItem="J51-8V-eFu" firstAttribute="leading" secondItem="BcU-Tz-EYM" secondAttribute="trailing" constant="-23" id="zga-WF-gT4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kyc-qD-i0k"/>
@@ -351,7 +468,26 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="coinsLabel" destination="GDN-aK-Cei" id="iln-Zf-Qc5"/>
+                        <outlet property="Const10down" destination="KOy-q2-0QA" id="TnE-mS-ge4"/>
+                        <outlet property="Const11down" destination="AbE-bn-o5N" id="80h-Kl-eZw"/>
+                        <outlet property="Const12down" destination="QIq-di-79a" id="Wwp-cL-d30"/>
+                        <outlet property="Const12left" destination="igg-RX-oy4" id="aEj-jq-BgH"/>
+                        <outlet property="Const13down" destination="087-ri-xGs" id="Ert-1v-164"/>
+                        <outlet property="Const14down" destination="9Zm-EU-20Q" id="wY9-PY-NdZ"/>
+                        <outlet property="Const14left" destination="mgV-0D-I4T" id="dch-Kc-EfG"/>
+                        <outlet property="Const15down" destination="F0V-0F-F80" id="tlC-ug-Ssb"/>
+                        <outlet property="Const15to16" destination="mkI-vc-QjG" id="maa-EO-CJy"/>
+                        <outlet property="Const16down" destination="nD2-DR-6d7" id="7WS-I2-HKP"/>
+                        <outlet property="Const2to1" destination="b5B-Sa-3Fx" id="0Kk-vL-sPb"/>
+                        <outlet property="Const5up" destination="94B-n9-NVW" id="Mjo-c8-N7q"/>
+                        <outlet property="Const6left" destination="QiI-Gv-JoU" id="dy4-yx-Ph6"/>
+                        <outlet property="Const6up" destination="eqZ-dW-h5m" id="KXk-7o-dW6"/>
+                        <outlet property="Const7up" destination="ul8-dM-E4z" id="NVM-Vq-tyX"/>
+                        <outlet property="Const8left" destination="o2A-Dw-Nld" id="7yQ-8a-701"/>
+                        <outlet property="Const8up" destination="nuM-yZ-3T5" id="cT8-Ph-X4f"/>
+                        <outlet property="Const9up" destination="iuw-OI-PgN" id="Eau-OS-B1b"/>
+                        <outlet property="Constant4up" destination="xf1-wv-u1f" id="5dw-dp-225"/>
+                        <outlet property="coinsLabel" destination="GDN-aK-Cei" id="yi6-ho-1AS"/>
                         <outlet property="n1" destination="BcU-Tz-EYM" id="DFs-4L-GGr"/>
                         <outlet property="n10" destination="oPq-zJ-FqM" id="cJt-DS-C93"/>
                         <outlet property="n11" destination="drG-Bn-wgf" id="52l-W9-k5q"/>
@@ -429,6 +565,9 @@
                                 <state key="normal" title="БЕСПЛАТНЫЕ МОНЕТЫ" backgroundImage="ButtonPlay">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="FreeCoins:" destination="Zqh-oY-NSQ" eventType="touchUpInside" id="Cf4-15-7Ed"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWR-it-nj4">
                                 <rect key="frame" x="30" y="171" width="315" height="85"/>
@@ -563,6 +702,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="CoinsLabel" destination="NtU-Cm-WxP" id="MhL-Vv-8Ix"/>
+                        <outlet property="FreeCoins" destination="AbM-cA-0de" id="vMR-0a-zDg"/>
                         <outlet property="Get100Coins" destination="Pnv-F5-9VO" id="74b-Vm-STb"/>
                         <outlet property="Get10Coins" destination="DWR-it-nj4" id="1qD-4n-23d"/>
                         <outlet property="Get50Coins" destination="YpP-od-GTA" id="wdN-MS-DZ7"/>
@@ -574,7 +714,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pd7-tV-5B8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1158.5" y="34.5"/>
+            <point key="canvasLocation" x="1148.5" y="-83.5"/>
         </scene>
         <!--Questions View Controller-->
         <scene sceneID="Lwc-wH-b1n">
@@ -717,11 +857,11 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpT-TX-hoa">
-                                <rect key="frame" x="130" y="150" width="48" height="24"/>
+                                <rect key="frame" x="130" y="150" width="58" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="JpT-TX-hoa" secondAttribute="height" multiplier="2:1" id="UhB-4X-fhe"/>
-                                    <constraint firstAttribute="width" constant="48" id="WSo-yW-yhl"/>
-                                    <constraint firstAttribute="height" constant="24" id="zBx-yc-a42"/>
+                                    <constraint firstAttribute="width" secondItem="JpT-TX-hoa" secondAttribute="height" multiplier="29:12" id="8qZ-dW-hVE"/>
+                                    <constraint firstAttribute="width" constant="58" id="R2x-9Y-QiH"/>
+                                    <constraint firstAttribute="height" constant="24" id="vNr-WF-10k"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -809,7 +949,6 @@
                             <constraint firstItem="KYe-hV-FOA" firstAttribute="top" secondItem="UCQ-WR-Hte" secondAttribute="bottom" constant="-41" id="ADn-b3-d26"/>
                             <constraint firstItem="1c7-Mh-dJR" firstAttribute="leading" secondItem="2ec-Yj-CJg" secondAttribute="trailing" constant="4" id="AQv-Zg-2QD"/>
                             <constraint firstItem="9Ce-C7-fv6" firstAttribute="leading" secondItem="1c7-Mh-dJR" secondAttribute="trailing" constant="7" id="AjX-pA-z5O"/>
-                            <constraint firstItem="JpT-TX-hoa" firstAttribute="centerY" secondItem="yb6-dv-uA9" secondAttribute="centerY" id="CE0-ji-ygn"/>
                             <constraint firstItem="yb6-dv-uA9" firstAttribute="top" secondItem="x5h-TQ-kib" secondAttribute="bottom" constant="130" id="F5I-cu-hOa"/>
                             <constraint firstItem="z7B-FM-zxJ" firstAttribute="width" secondItem="cCs-jc-Nco" secondAttribute="width" id="GJN-zd-k1d"/>
                             <constraint firstAttribute="trailing" secondItem="2gE-b5-2ER" secondAttribute="trailing" id="GPC-6Q-85D"/>
@@ -837,7 +976,9 @@
                             <constraint firstItem="z7B-FM-zxJ" firstAttribute="top" secondItem="UCQ-WR-Hte" secondAttribute="bottom" constant="13" id="djz-Vw-2dL"/>
                             <constraint firstItem="oCf-xk-Xlf" firstAttribute="top" secondItem="UCQ-WR-Hte" secondAttribute="bottom" id="eBl-cI-Pfd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="znd-Pv-w4I" secondAttribute="trailing" constant="-20" id="fZD-6U-oxX"/>
+                            <constraint firstItem="KI7-k4-XPu" firstAttribute="leading" secondItem="JpT-TX-hoa" secondAttribute="trailing" constant="8" id="gSk-js-iNo"/>
                             <constraint firstItem="UCQ-WR-Hte" firstAttribute="leading" secondItem="1rj-lC-9p8" secondAttribute="leading" id="hFN-t2-CZz"/>
+                            <constraint firstItem="JpT-TX-hoa" firstAttribute="top" secondItem="x5h-TQ-kib" secondAttribute="bottom" constant="130" id="hlD-dz-xSR"/>
                             <constraint firstItem="cCs-jc-Nco" firstAttribute="top" secondItem="UCQ-WR-Hte" secondAttribute="bottom" constant="13" id="kW9-io-9eW"/>
                             <constraint firstItem="tuE-wh-wVW" firstAttribute="top" secondItem="UCQ-WR-Hte" secondAttribute="bottom" constant="-42" id="lt7-f5-pwC"/>
                             <constraint firstAttribute="trailing" secondItem="Gvg-tg-91Q" secondAttribute="trailing" constant="9" id="m24-aE-Sci"/>
@@ -852,7 +993,6 @@
                             <constraint firstItem="Ti8-VU-lf3" firstAttribute="top" secondItem="IPY-zS-MU4" secondAttribute="bottom" constant="14" id="tXB-wH-mSn"/>
                             <constraint firstItem="Ti8-VU-lf3" firstAttribute="top" secondItem="QNd-Jx-2n8" secondAttribute="bottom" constant="14" id="uZR-Rk-1sq"/>
                             <constraint firstItem="f4j-mE-iNu" firstAttribute="centerY" secondItem="yb6-dv-uA9" secondAttribute="centerY" id="vUG-in-xyF"/>
-                            <constraint firstItem="yb6-dv-uA9" firstAttribute="leading" secondItem="JpT-TX-hoa" secondAttribute="trailing" constant="9" id="vb9-9o-UF1"/>
                             <constraint firstItem="Gvg-tg-91Q" firstAttribute="top" secondItem="UCQ-WR-Hte" secondAttribute="bottom" constant="13" id="vzf-dw-ia4"/>
                             <constraint firstItem="KI7-k4-XPu" firstAttribute="leading" secondItem="yb6-dv-uA9" secondAttribute="trailing" constant="8" id="yEt-jB-B1U"/>
                             <constraint firstItem="avX-s6-hOX" firstAttribute="top" secondItem="x5h-TQ-kib" secondAttribute="bottom" constant="11" id="yN3-em-ocE"/>
@@ -989,10 +1129,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP3-Rt-qEg">
+                                <rect key="frame" x="175" y="68" width="64" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="2jJ-i8-iYE"/>
+                                    <constraint firstAttribute="width" constant="64" id="G5Q-vz-t0W"/>
+                                    <constraint firstAttribute="width" secondItem="tP3-Rt-qEg" secondAttribute="height" multiplier="64:33" id="UFb-KE-nvQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="27"/>
+                                <color key="textColor" red="0.21176470588235294" green="0.50980392156862742" blue="0.77254901960784317" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OHD-1o-GdH" firstAttribute="leading" secondItem="T6B-Zc-cyy" secondAttribute="leading" constant="137" id="29k-qF-3OG"/>
+                            <constraint firstItem="tP3-Rt-qEg" firstAttribute="top" secondItem="mPF-6h-Oa9" secondAttribute="bottom" id="385-Ij-sPz"/>
                             <constraint firstItem="12C-f3-cES" firstAttribute="top" secondItem="mPF-6h-Oa9" secondAttribute="bottom" constant="13" id="9Dh-ID-qmG"/>
                             <constraint firstItem="OHD-1o-GdH" firstAttribute="top" secondItem="EzL-eZ-aKU" secondAttribute="bottom" constant="23" id="Dew-65-AeJ"/>
                             <constraint firstItem="3WS-ND-OdA" firstAttribute="centerX" secondItem="T6B-Zc-cyy" secondAttribute="centerX" id="NMk-Z0-vot"/>
@@ -1000,6 +1152,7 @@
                             <constraint firstItem="Cgx-gK-XOg" firstAttribute="centerX" secondItem="T6B-Zc-cyy" secondAttribute="centerX" id="Tbv-e1-tDT"/>
                             <constraint firstItem="Cgx-gK-XOg" firstAttribute="top" secondItem="3WS-ND-OdA" secondAttribute="bottom" constant="25" id="Vf6-sI-ECZ"/>
                             <constraint firstItem="mPF-6h-Oa9" firstAttribute="top" secondItem="EzL-eZ-aKU" secondAttribute="bottom" constant="27" id="bjI-WP-2d2"/>
+                            <constraint firstItem="mPF-6h-Oa9" firstAttribute="leading" secondItem="tP3-Rt-qEg" secondAttribute="trailing" constant="-64" id="mjG-sN-dWx"/>
                             <constraint firstItem="mOO-lC-bgB" firstAttribute="top" secondItem="Cgx-gK-XOg" secondAttribute="bottom" constant="23" id="ntf-m3-a2m"/>
                             <constraint firstItem="mPF-6h-Oa9" firstAttribute="leading" secondItem="OHD-1o-GdH" secondAttribute="trailing" constant="8" id="rV5-6w-aN8"/>
                             <constraint firstItem="3WS-ND-OdA" firstAttribute="top" secondItem="12C-f3-cES" secondAttribute="bottom" constant="8" id="sCg-FK-CDf"/>
@@ -1017,7 +1170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SlL-Du-xu2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2072.5" y="34.5"/>
+            <point key="canvasLocation" x="2026.5" y="-83.5"/>
         </scene>
         <!--Fail View Controller-->
         <scene sceneID="mkW-ro-S43">
@@ -1053,11 +1206,11 @@
                                 <rect key="frame" x="20" y="556" width="80" height="80"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9o8-Jh-CEp">
-                                <rect key="frame" x="77" y="380" width="220" height="70"/>
+                                <rect key="frame" x="78" y="258" width="220" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="9o8-Jh-CEp" secondAttribute="height" multiplier="22:7" id="qtV-qK-eXq"/>
-                                    <constraint firstAttribute="height" constant="70" id="rom-je-9ZQ"/>
-                                    <constraint firstAttribute="width" constant="220" id="u9i-cw-Zdq"/>
+                                    <constraint firstAttribute="height" constant="70" id="8BP-Dl-3oj"/>
+                                    <constraint firstAttribute="width" secondItem="9o8-Jh-CEp" secondAttribute="height" multiplier="22:7" id="PFZ-yn-9YM"/>
+                                    <constraint firstAttribute="width" constant="220" id="Xpm-I5-hTS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
@@ -1068,15 +1221,15 @@
                                     <action selector="RepeatClicked:" destination="ziR-bO-jva" eventType="touchUpInside" id="hKg-Bi-z1W"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jb1-8v-3hk">
-                                <rect key="frame" x="78" y="272" width="220" height="70"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jb1-8v-3hk">
+                                <rect key="frame" x="78" y="352" width="220" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="DWq-ib-2eh"/>
-                                    <constraint firstAttribute="height" constant="70" id="vCg-Ep-RZ3"/>
-                                    <constraint firstAttribute="width" secondItem="jb1-8v-3hk" secondAttribute="height" multiplier="22:7" id="yCG-xV-D0U"/>
+                                    <constraint firstAttribute="width" constant="220" id="C5T-gw-8RS"/>
+                                    <constraint firstAttribute="width" secondItem="jb1-8v-3hk" secondAttribute="height" multiplier="22:7" id="csj-e8-lQ7"/>
+                                    <constraint firstAttribute="height" constant="70" id="ziT-FI-5CG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="СПИСОК УРОВНЕЙ" backgroundImage="LevelList">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1087,47 +1240,46 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LevelFail" translatesAutoresizingMaskIntoConstraints="NO" id="Inn-Yg-LmJ">
                                 <rect key="frame" x="117" y="107" width="142" height="119"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Inn-Yg-LmJ" secondAttribute="height" multiplier="142:119" id="LN9-Af-TXD"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScoresIcon" translatesAutoresizingMaskIntoConstraints="NO" id="l4z-eB-003">
-                                <rect key="frame" x="128" y="53" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="LH0-om-kUG"/>
-                                    <constraint firstAttribute="width" constant="30" id="YvK-2g-83L"/>
-                                    <constraint firstAttribute="width" secondItem="l4z-eB-003" secondAttribute="height" multiplier="1:1" id="l8u-Bc-4cw"/>
+                                    <constraint firstAttribute="width" secondItem="Inn-Yg-LmJ" secondAttribute="height" multiplier="142:119" id="UwY-jf-Xqw"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1250" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHe-Tv-CP0">
-                                <rect key="frame" x="166" y="57" width="131" height="21"/>
+                                <rect key="frame" x="181" y="57" width="131" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="131" id="H3W-jK-TPW"/>
-                                    <constraint firstAttribute="height" constant="21" id="bQp-fZ-WhX"/>
-                                    <constraint firstAttribute="width" secondItem="eHe-Tv-CP0" secondAttribute="height" multiplier="131:21" id="kwy-YB-qaC"/>
+                                    <constraint firstAttribute="width" constant="131" id="YEt-oe-QX0"/>
+                                    <constraint firstAttribute="height" constant="21" id="jzP-Xd-aBA"/>
+                                    <constraint firstAttribute="width" secondItem="eHe-Tv-CP0" secondAttribute="height" multiplier="131:21" id="qaJ-Er-9hx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ProximaNova-Black" family="Proxima Nova" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScoresIcon" translatesAutoresizingMaskIntoConstraints="NO" id="l4z-eB-003">
+                                <rect key="frame" x="143" y="53" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="IrH-fC-2l0"/>
+                                    <constraint firstAttribute="height" constant="30" id="gpl-pk-dyE"/>
+                                    <constraint firstAttribute="width" secondItem="l4z-eB-003" secondAttribute="height" multiplier="1:1" id="iVK-d5-dMw"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9o8-Jh-CEp" firstAttribute="top" secondItem="Inn-Yg-LmJ" secondAttribute="bottom" constant="32" id="0ou-E5-qy3"/>
                             <constraint firstItem="vDf-fg-RMh" firstAttribute="top" secondItem="8gY-qY-i3p" secondAttribute="top" id="3Up-Sz-AYv"/>
-                            <constraint firstItem="9o8-Jh-CEp" firstAttribute="centerX" secondItem="8gY-qY-i3p" secondAttribute="centerX" id="7Nf-ae-YKo"/>
-                            <constraint firstItem="jb1-8v-3hk" firstAttribute="top" secondItem="Inn-Yg-LmJ" secondAttribute="bottom" constant="46" id="AEw-aY-geF"/>
+                            <constraint firstItem="l4z-eB-003" firstAttribute="leading" secondItem="8gY-qY-i3p" secondAttribute="leadingMargin" constant="127" id="3hd-dx-dij"/>
+                            <constraint firstItem="9o8-Jh-CEp" firstAttribute="top" secondItem="uEH-s3-RPA" secondAttribute="bottom" constant="238" id="7wY-D4-aVu"/>
                             <constraint firstAttribute="trailing" secondItem="vDf-fg-RMh" secondAttribute="trailing" id="HwM-U0-XCq"/>
                             <constraint firstItem="vDf-fg-RMh" firstAttribute="leading" secondItem="8gY-qY-i3p" secondAttribute="leading" id="PoK-eh-ke7"/>
-                            <constraint firstItem="l4z-eB-003" firstAttribute="top" secondItem="uEH-s3-RPA" secondAttribute="bottom" constant="33" id="Yen-jM-Krf"/>
-                            <constraint firstItem="9o8-Jh-CEp" firstAttribute="top" secondItem="jb1-8v-3hk" secondAttribute="bottom" constant="38" id="bz3-RB-QWL"/>
-                            <constraint firstItem="eHe-Tv-CP0" firstAttribute="top" secondItem="uEH-s3-RPA" secondAttribute="bottom" constant="37" id="gd3-xB-yf1"/>
-                            <constraint firstItem="Inn-Yg-LmJ" firstAttribute="centerX" secondItem="8gY-qY-i3p" secondAttribute="centerX" id="ght-fa-JaG"/>
-                            <constraint firstItem="l4z-eB-003" firstAttribute="top" secondItem="uEH-s3-RPA" secondAttribute="bottom" constant="33" id="jMc-Li-SEI"/>
-                            <constraint firstItem="eHe-Tv-CP0" firstAttribute="leading" secondItem="l4z-eB-003" secondAttribute="trailing" constant="8" id="mj9-Qs-zfJ"/>
-                            <constraint firstItem="jb1-8v-3hk" firstAttribute="centerX" secondItem="8gY-qY-i3p" secondAttribute="centerX" id="qnV-ih-NpL"/>
-                            <constraint firstItem="l4z-eB-003" firstAttribute="leading" secondItem="8gY-qY-i3p" secondAttribute="leading" constant="128" id="sU0-wx-piP"/>
-                            <constraint firstItem="jb1-8v-3hk" firstAttribute="top" secondItem="uEH-s3-RPA" secondAttribute="bottom" constant="252" id="ub0-Uk-bSH"/>
+                            <constraint firstItem="Inn-Yg-LmJ" firstAttribute="centerX" secondItem="8gY-qY-i3p" secondAttribute="centerX" id="S2E-Va-lNf"/>
+                            <constraint firstItem="jb1-8v-3hk" firstAttribute="top" secondItem="9o8-Jh-CEp" secondAttribute="bottom" constant="24" id="UrW-p1-Lq4"/>
+                            <constraint firstItem="Inn-Yg-LmJ" firstAttribute="top" secondItem="l4z-eB-003" secondAttribute="bottom" constant="24" id="ZCc-6D-2eT"/>
+                            <constraint firstItem="jb1-8v-3hk" firstAttribute="centerX" secondItem="8gY-qY-i3p" secondAttribute="centerX" id="ciA-BZ-mNQ"/>
+                            <constraint firstItem="eHe-Tv-CP0" firstAttribute="top" secondItem="uEH-s3-RPA" secondAttribute="bottom" constant="37" id="nbn-EB-f5g"/>
+                            <constraint firstItem="9o8-Jh-CEp" firstAttribute="centerX" secondItem="8gY-qY-i3p" secondAttribute="centerX" id="uBf-8N-trh"/>
+                            <constraint firstItem="l4z-eB-003" firstAttribute="top" secondItem="uEH-s3-RPA" secondAttribute="bottom" constant="33" id="v2e-kU-nhy"/>
+                            <constraint firstItem="eHe-Tv-CP0" firstAttribute="leading" secondItem="l4z-eB-003" secondAttribute="trailing" constant="8" id="vSm-Hl-Wfp"/>
                             <constraint firstItem="PIv-Wh-gR0" firstAttribute="top" secondItem="vDf-fg-RMh" secondAttribute="bottom" id="vSy-ku-MOE"/>
-                            <constraint firstItem="Inn-Yg-LmJ" firstAttribute="top" secondItem="eHe-Tv-CP0" secondAttribute="bottom" constant="29" id="z6o-uE-QZ6"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
@@ -1178,8 +1330,8 @@
         <image name="topBarBG" width="640" height="140"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TTa-2C-0Ss"/>
-        <segue reference="QlJ-2L-4co"/>
-        <segue reference="jls-Ps-cXN"/>
+        <segue reference="9La-FP-Xme"/>
+        <segue reference="VGL-G2-vDv"/>
+        <segue reference="rM5-xW-Vbu"/>
     </inferredMetricsTieBreakers>
 </document>
