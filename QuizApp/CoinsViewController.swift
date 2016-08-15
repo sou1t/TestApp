@@ -8,7 +8,9 @@
 
 import UIKit
 import StoreKit
-import MoPub
+import mopub_ios_sdk
+import Chirp
+import Flurry_iOS_SDK
 
 
 class CoinsViewController: UIViewController, MPInterstitialAdControllerDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver {
@@ -31,13 +33,21 @@ class CoinsViewController: UIViewController, MPInterstitialAdControllerDelegate,
     var interstitial: MPInterstitialAdController =
         MPInterstitialAdController(forAdUnitId: "095a207910074051b61c64c78474069f")
 
-
+    
     
     @IBAction func Exit(sender: AnyObject) {
+        Flurry.logEvent("User exit the page with coins")
         self.navigationController?.popViewControllerAnimated(true)
+        dispatch_async(dispatch_get_main_queue()){
+            Chirp.sharedManager.playSound(fileName: "tapMenu.mp3")
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        dispatch_async(dispatch_get_main_queue()){
+            Chirp.sharedManager.prepareSound(fileName: "tapMenu.mp3")
+            Chirp.sharedManager.prepareSound(fileName: "coins.mp3")
+        }
         self.interstitial.delegate = self
         // Pre-fetch the ad up front
         self.interstitial.loadAd()
@@ -73,7 +83,9 @@ class CoinsViewController: UIViewController, MPInterstitialAdControllerDelegate,
     }
     
     @IBAction func GetCoinsClicked(sender: UIButton) {
-        
+        dispatch_async(dispatch_get_main_queue()){
+            Chirp.sharedManager.playSound(fileName: "tapMenu.mp3")
+        }
         
         for product in list
         {
@@ -84,6 +96,7 @@ class CoinsViewController: UIViewController, MPInterstitialAdControllerDelegate,
                 {
                   p = product
                     BuyProduct()
+                    Flurry.logEvent("User click 'buy 10 coins'")
                     break;
                 }
             case 50:
@@ -91,6 +104,7 @@ class CoinsViewController: UIViewController, MPInterstitialAdControllerDelegate,
                 {
                     p = product
                     BuyProduct()
+                    Flurry.logEvent("User click 'buy 50 coins'")
                     break;
                 }
                 
@@ -99,6 +113,7 @@ class CoinsViewController: UIViewController, MPInterstitialAdControllerDelegate,
                 {
                     p = product
                     BuyProduct()
+                    Flurry.logEvent("User click 'buy 100 coins'")
                     break;
                 }
             default:
@@ -109,12 +124,19 @@ class CoinsViewController: UIViewController, MPInterstitialAdControllerDelegate,
     }
 
     @IBAction func RestorePurchaseClicked(sender: UIButton) {
+        Flurry.logEvent("User wants to restore purchase")
+        dispatch_async(dispatch_get_main_queue()){
+            Chirp.sharedManager.playSound(fileName: "tapMenu.mp3")
+        }
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
     }
     
     func GetCoins(number:Int){
         var intValue = Int(coins)!
+        dispatch_async(dispatch_get_main_queue()){
+            Chirp.sharedManager.playSound(fileName: "coins.mp3")
+        }
         intValue += number
         NSUserDefaults.standardUserDefaults().setInteger(intValue, forKey: "coins")
     }
@@ -246,6 +268,10 @@ class CoinsViewController: UIViewController, MPInterstitialAdControllerDelegate,
     }
     
     @IBAction func FreeCoins(sender: AnyObject) {
+        Flurry.logEvent("User click 'get free coins'")
+        dispatch_async(dispatch_get_main_queue()){
+            Chirp.sharedManager.playSound(fileName: "tapMenu.mp3")
+        }
         let delay = 0.5 * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {

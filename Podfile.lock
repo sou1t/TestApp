@@ -1,18 +1,38 @@
 PODS:
   - Alamofire (3.4.1)
+  - Chirp (1.1.1)
+  - Fabric (1.6.7)
+  - Flurry-iOS-SDK/FlurrySDK (7.6.6)
+  - Google-Mobile-Ads-SDK (7.9.0)
+  - mopub-ios-sdk (4.7.0):
+    - mopub-ios-sdk/MoPubSDK (= 4.7.0)
+  - mopub-ios-sdk/MoPubSDK (4.7.0)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
   - SwiftyJSON (2.3.2)
+  - YandexMobileMetrica (2.5.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - Chirp (~> 1.1)
+  - Fabric
+  - Flurry-iOS-SDK/FlurrySDK
+  - Google-Mobile-Ads-SDK
+  - mopub-ios-sdk
   - SDWebImage (~> 3.8)
   - SwiftyJSON (~> 2.3)
+  - YandexMobileMetrica (= 2.5.1)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Chirp: e06920df90dd33b3e74c988c58f621a8a1e41e7d
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  Flurry-iOS-SDK: 97bbeec09cca666c2f1772f6e161c4f8ccff611e
+  Google-Mobile-Ads-SDK: 1b7257c6dde53a587adb28f45365535e6122c48a
+  mopub-ios-sdk: e46b277cdb77b1745567b419742f77fed6865262
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  YandexMobileMetrica: d59b224faba67c7283acbf8fece706e4baa12e97
 
 COCOAPODS: 0.39.0

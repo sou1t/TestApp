@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Chirp
+import Flurry_iOS_SDK
 
 class FailViewController: UIViewController {
     @IBOutlet weak var score: UILabel!
@@ -24,6 +26,9 @@ class FailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dispatch_async(dispatch_get_main_queue()){
+            Chirp.sharedManager.prepareSound(fileName: "tapMenu.mp3")
+        }
         def.setValue(self.bg1.center.y, forKey: "1")
         def.setValue(self.bg2.center.y, forKey: "2")
         def.setValue(self.bg3.center.y, forKey: "3")
@@ -33,23 +38,37 @@ class FailViewController: UIViewController {
         score.text = NSUserDefaults.standardUserDefaults().valueForKey("score") as? String ?? "0"
         self.timer.fire()
         
-
+        let delay = 8.5 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()){
+            playBackgroundMusic("fon")
+        }
         
 
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func ListOfLevelsClicked(sender: AnyObject) {
+        Flurry.logEvent("User go to list of levels")
+        dispatch_async(dispatch_get_main_queue()){
+            Chirp.sharedManager.playSound(fileName: "tapMenu.mp3")
+        }
         self.timer.invalidate()
         self.performSegueWithIdentifier("FailToLevels", sender: self)
     }
     
     @IBAction func RepeatClicked(sender: AnyObject) {
+        let current = NSUserDefaults.standardUserDefaults().valueForKey("level") as? Int ?? 10
+        Flurry.logEvent("User repeat level \(current)")
+        dispatch_async(dispatch_get_main_queue()){
+            Chirp.sharedManager.playSound(fileName: "tapMenu.mp3")
+        }
         self.timer.invalidate()
         self.performSegueWithIdentifier("FailToQuestion", sender: self)
     }
@@ -80,6 +99,9 @@ class FailViewController: UIViewController {
         
         
         
+    }
+    deinit{
+        Chirp.sharedManager.removeSound(fileName: "tapMenu.mp3")
     }
     
 

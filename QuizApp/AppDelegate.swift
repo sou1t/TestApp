@@ -8,8 +8,9 @@
 
 import UIKit
 import Fabric
-import MoPub
-
+import mopub_ios_sdk
+import YandexMobileMetrica
+import Flurry_iOS_SDK
 
 
 
@@ -23,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barStyle = .Black
         Fabric.with([MoPub.self])
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
+        YMMYandexMetrica.activateWithApiKey("8d89ff3a-7f8c-47f6-8540-c77bbe2c04e5")
+        YMMYandexMetrica.setLoggingEnabled(true)
+        YMMYandexMetrica.setReportCrashesEnabled(true)
+        Flurry.startSession("7TK2S2GCYWP8CNNFZ45M")
         return true
         
     }
@@ -48,6 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+
 
 
 }
