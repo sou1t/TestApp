@@ -1,4 +1,6 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#endif
 
 #import "MPBannerAdManager.h"
 #import "MPBannerAdManagerDelegate.h"
@@ -19,7 +21,6 @@
 #import "MPEnhancedDeeplinkRequest.h"
 #import "MPFacebookKeywordProvider.h"
 #import "MPKeywordProvider.h"
-#import "MPLastResortDelegate+EventKit.h"
 #import "MPLastResortDelegate.h"
 #import "MPProgressOverlayView.h"
 #import "MPURLActionInfo.h"
@@ -33,10 +34,6 @@
 #import "MPNetworkManager.h"
 #import "MPQRunLoopOperation.h"
 #import "MPRetryingHTTPOperation.h"
-#import "FABAttributes.h"
-#import "FABKitProtocol.h"
-#import "Fabric+FABKits.h"
-#import "Fabric.h"
 #import "MPAdWebView.h"
 #import "MPAdWebViewAgent.h"
 #import "MPHTMLBannerCustomEvent.h"
@@ -57,15 +54,12 @@
 #import "MPMRAIDInterstitialViewController.h"
 #import "MRBridge.h"
 #import "MRBundleManager.h"
-#import "MRCalendarManager.h"
 #import "MRCommand.h"
 #import "MRConstants.h"
 #import "MRController.h"
 #import "MRError.h"
 #import "MRExpandModalViewController.h"
-#import "MRImageDownloader.h"
 #import "MRNativeCommandHandler.h"
-#import "MRPictureManager.h"
 #import "MRProperty.h"
 #import "MRVideoPlayerManager.h"
 #import "NSHTTPURLResponse+MPAdditions.h"
@@ -185,6 +179,6 @@
 #import "MPRewardedVideoError.h"
 #import "MPRewardedVideoReward.h"
 
-FOUNDATION_EXPORT double mopub_ios_sdkVersionNumber;
-FOUNDATION_EXPORT const unsigned char mopub_ios_sdkVersionString[];
+FOUNDATION_EXPORT double MoPubVersionNumber;
+FOUNDATION_EXPORT const unsigned char MoPubVersionString[];
 

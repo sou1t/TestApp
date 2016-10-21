@@ -1,10 +1,10 @@
-# Yandex.Metrica for Apps SDK
+# Yandex AppMetrica SDK
 
 ## License
-License agreement on use of Yandex AppMetrica for Apps SDK is available at [EULA site] [LICENSE]
+License agreement on use of Yandex AppMetrica SDK is available at [EULA site] [LICENSE]
 
 ## Documentation
-Documentation could be found at [metrica official site] [DOCUMENTATION]
+Documentation could be found at [AppMetrica official site] [DOCUMENTATION]
 
 ## Sample project
 Sample project to use is available at [GitHub] [GitHubSAMPLE]
@@ -19,8 +19,29 @@ advertisement**.
 
 ## Changelog
 
-### Version 2.5.0
+### Version 2.6.2
 
+* Improved performance and quality of statistics.
+
+### Version 2.6.1
+SDK archive: [**download**](https://storage.mds.yandex.net/get-appmetrica-mobile-sdk/50347/YandexMobileMetrica-2.6.1-ios-64364d26-6106-4105-9f79-d18478e6e3b8.zip)
+
+* Fixed iOS 6 support.
+
+### Version 2.6.0
+SDK archive: [**download**](https://storage.mds.yandex.net/get-appmetrica-mobile-sdk/50347/YandexMobileMetrica-2.6.0-ios-962cb138-d9c6-4d0f-8d1d-55fc98d81d1d.zip)
+
+* Improved iOS 10 support.
+* Improved Swift support.
+* Added dynamic framework.
+
+### Version 2.5.1
+SDK archive: [**download**](https://storage.mds.yandex.net/get-appmetrica-mobile-sdk/117488/YandexMobileMetrica-2.5.1-ios-ec534922-a996-49c9-adef-96c781d33e07.zip)
+
+* Framework archive moved to the Yandex cloud storage.
+* Fixed [#41](https://github.com/yandexmobile/metrica-sdk-ios/issues/41).
+
+### Version 2.5.0
 * Improved performance and quality of statistics.
 
 ### Version 2.4.1
@@ -114,7 +135,7 @@ For more details see [official doc page](https://tech.yandex.com/metrica-mobile-
 * Extracted ProtobufObjC as an external dependency
 
 
-[LICENSE]: http://legal.yandex.ru/metrica_termsofuse/ "Yandex AppMetrica agreement"
-[DOCUMENTATION]: http://api.yandex.com/metrica-mobile-sdk/ "Yandex AppMetrica for Apps documentation"
-[GitHubSAMPLE]:https://github.com/yandexmobile/metrica-sample-ios/
-[idfa]:https://developer.apple.com/LIBRARY/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/index.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingTrackingEnabled
+[LICENSE]: https://yandex.com/legal/metrica_termsofuse/ "Yandex AppMetrica agreement"
+[DOCUMENTATION]: https://tech.yandex.com/metrica-mobile-sdk/ "Yandex AppMetrica for Apps documentation"
+[GitHubSAMPLE]: https://github.com/yandexmobile/metrica-sample-ios/
+[idfa]: https://developer.apple.com/reference/adsupport/asidentifiermanager#//apple_ref/occ/instp/ASIdentifierManager/advertisingTrackingEnabled

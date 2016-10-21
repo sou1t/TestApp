@@ -16,15 +16,15 @@ To file an issue with our team visit the [MoPub Forum](https://twittercommunity.
 
 The MoPub SDK is distributed as source code that you can include in your application.  MoPub provides two prepackaged archives of source code:
 
-- **[MoPub Full SDK.zip](http://bit.ly/180lUGi)**
+- **[MoPub Base SDK.zip](http://bit.ly/2bH8ObO)**
 
-  Includes everything you need to serve HTML, MRAID, and Native MoPub advertisiments *and* built-in support for three major third party ad networks - [iAd](http://advertising.apple.com/), [Google AdMob](http://www.google.com/ads/admob/), and [Millennial Media](http://www.millennialmedia.com/) - including the required third party binaries.
+  Includes everything you need to serve HTML, MRAID, and Native MoPub advertisements.  Third party ad networks are not included.
+  
+- **[MoPub Base SDK Excluding Native.zip](http://bit.ly/2bCCgRw)**
 
-- **[MoPub Base SDK.zip](http://bit.ly/19pPR1r)**
+  Includes everything you need to serve HTML and MRAID advertisements.  Third party ad networks and Native MoPub advertisements are not included.
 
-  Includes everything you need to serve HTML, MRAID, and Native MoPub advertisements.  No third party ad networks are included.
-
-The current version of the SDK is 4.7.0
+The current version of the SDK is 4.10.0
 
 ## Integrate
 
@@ -36,7 +36,14 @@ More detailed class documentation is available in the repo under the `ClassDocum
 
 Please view the [changelog](https://github.com/mopub/mopub-ios-sdk/blob/master/CHANGELOG.md) for details.
 
-- **Rewarded video server-side currency rewarding (Beta)**.
+- **Certified FAN 4.15.1**
+- **Certified Chartboost 6.5.2**
+- **Certified Yahoo 7.6.4**
+- **Certified TapJoy support for 11.8.2**
+- **Certified Millennial support for 6.3.1**
+- **Certified Vungle 4.0.6**
+- **Bug fixes**
+  - Added support for the CocoaPods use_frameworks! directive
 
 
 ### IMPORTANT 4.0 UPGRADE INSTRUCTIONS

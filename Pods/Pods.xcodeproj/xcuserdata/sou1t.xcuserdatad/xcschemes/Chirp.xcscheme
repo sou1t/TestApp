@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C91BC6900CCD51F03C3C807D'
+               BlueprintIdentifier = '0435B780B17A7A610BC562E4104531B8'
                BlueprintName = 'Chirp'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Chirp.framework'>

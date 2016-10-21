@@ -28,7 +28,7 @@ class QuestionModel {
     }
 
     
-    let ServerAdress = "http://api.chumanity.ru"
+    let ServerAdress = "http://aglinsky.ru/quiz_serv/public_html"
     init () {
         questions = []
 

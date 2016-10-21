@@ -38,7 +38,7 @@
 		3FF38CAE1D11A1290092C787 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF38CAC1D11A1290092C787 /* LaunchScreen.storyboard */; };
 		3FF38CB91D11A1290092C787 /* QuizAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF38CB81D11A1290092C787 /* QuizAppTests.swift */; };
 		3FF38CC41D11A1290092C787 /* QuizAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF38CC31D11A1290092C787 /* QuizAppUITests.swift */; };
-		F274E3B5F41E5C762CFE1C92 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA683AA049AE775AFB881018 /* Pods.framework */; };
+		61B2165B0C45CC8C8E0F371C /* Pods_QuizApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C6AAA7A2D2E1B3B413CB8B /* Pods_QuizApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +97,9 @@
 		3FF38CBF1D11A1290092C787 /* QuizAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF38CC31D11A1290092C787 /* QuizAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAppUITests.swift; sourceTree = "<group>"; };
 		3FF38CC51D11A1290092C787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5224C49F9D6A0CF7D08C9A8D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D889391517C08E266CCB27E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		45C6AAA7A2D2E1B3B413CB8B /* Pods_QuizApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		697BEBB87FCCC35F40E65190 /* Pods-QuizApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuizApp/Pods-QuizApp.release.xcconfig"; sourceTree = "<group>"; };
+		8037527B2CF5287AD60817AA /* Pods-QuizApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuizApp/Pods-QuizApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EA683AA049AE775AFB881018 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,8 +109,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F05F98E1D325CE0002B9901 /* StoreKit.framework in Frameworks */,
-				F274E3B5F41E5C762CFE1C92 /* Pods.framework in Frameworks */,
 				3F05F98C1D325CC3002B9901 /* GameKit.framework in Frameworks */,
+				61B2165B0C45CC8C8E0F371C /* Pods_QuizApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,8 +162,8 @@
 				3FF38CB71D11A1290092C787 /* QuizAppTests */,
 				3FF38CC21D11A1290092C787 /* QuizAppUITests */,
 				3FF38CA11D11A1290092C787 /* Products */,
-				4EEA58A5F33DE27EFA52CF5D /* Pods */,
 				983C1F1A20AFDC5E2E509D36 /* Frameworks */,
+				D8AFEEC69BCE9F0827520C93 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,23 +223,24 @@
 			path = QuizAppUITests;
 			sourceTree = "<group>";
 		};
-		4EEA58A5F33DE27EFA52CF5D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5224C49F9D6A0CF7D08C9A8D /* Pods.debug.xcconfig */,
-				D889391517C08E266CCB27E6 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		983C1F1A20AFDC5E2E509D36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				3F05F98D1D325CE0002B9901 /* StoreKit.framework */,
 				3F05F98B1D325CC3002B9901 /* GameKit.framework */,
 				EA683AA049AE775AFB881018 /* Pods.framework */,
+				45C6AAA7A2D2E1B3B413CB8B /* Pods_QuizApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8AFEEC69BCE9F0827520C93 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8037527B2CF5287AD60817AA /* Pods-QuizApp.debug.xcconfig */,
+				697BEBB87FCCC35F40E65190 /* Pods-QuizApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,13 +250,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FF38CC81D11A1290092C787 /* Build configuration list for PBXNativeTarget "QuizApp" */;
 			buildPhases = (
-				8FA7B11BB3A309DED156164F /* Check Pods Manifest.lock */,
+				6EA35F81DFFD7370F51583E9 /* [CP] Check Pods Manifest.lock */,
 				3FF38C9C1D11A1290092C787 /* Sources */,
 				3FF38C9D1D11A1290092C787 /* Frameworks */,
 				3FF38C9E1D11A1290092C787 /* Resources */,
-				5DE70DAEC3C5BF0B00BC5BF5 /* Embed Pods Frameworks */,
-				475D2D5280ECFAAE92A7D418 /* Copy Pods Resources */,
 				3FA9084B1D397BC6007E0186 /* Run Script */,
+				E5B9FB89C54EF8ABF96884BF /* [CP] Embed Pods Frameworks */,
+				923441E9777AE1ECBCD84742 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -314,6 +316,7 @@
 					3FF38C9F1D11A1290092C787 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = P89V4KBVYT;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -406,49 +409,49 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4fa7fa828820bd46a5ff0fd5bbfb4139dd46b2ab 8eaf3434aef8bcb6f2b4d5735e6ca7a9b7579bff4ea938371201656bba43198a\n";
 		};
-		475D2D5280ECFAAE92A7D418 /* Copy Pods Resources */ = {
+		6EA35F81DFFD7370F51583E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5DE70DAEC3C5BF0B00BC5BF5 /* Embed Pods Frameworks */ = {
+		923441E9777AE1ECBCD84742 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuizApp/Pods-QuizApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8FA7B11BB3A309DED156164F /* Check Pods Manifest.lock */ = {
+		E5B9FB89C54EF8ABF96884BF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuizApp/Pods-QuizApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -567,6 +570,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -604,18 +608,19 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		3FF38CC91D11A1290092C787 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5224C49F9D6A0CF7D08C9A8D /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 8037527B2CF5287AD60817AA /* Pods-QuizApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Andrew Glinsky (P89V4KBVYT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrew Glinsky (P89V4KBVYT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -624,7 +629,7 @@
 					"$(PROJECT_DIR)/QuizApp/MoPubSDK/AdNetworkSupport/Millennial/SDK",
 				);
 				INFOPLIST_FILE = QuizApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Vitalyi.QuizApp;
@@ -633,17 +638,18 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		3FF38CCA1D11A1290092C787 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D889391517C08E266CCB27E6 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 697BEBB87FCCC35F40E65190 /* Pods-QuizApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Andrew Glinsky (P89V4KBVYT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrew Glinsky (P89V4KBVYT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -652,7 +658,7 @@
 					"$(PROJECT_DIR)/QuizApp/MoPubSDK/AdNetworkSupport/Millennial/SDK",
 				);
 				INFOPLIST_FILE = QuizApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Vitalyi.QuizApp;
@@ -660,6 +666,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -672,6 +679,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Vitalyi.WillPower.QuizAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuizApp.app/QuizApp";
 			};
 			name = Debug;
@@ -685,6 +693,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Vitalyi.WillPower.QuizAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuizApp.app/QuizApp";
 			};
 			name = Release;
@@ -697,6 +706,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Vitalyi.WillPower.QuizAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = QuizApp;
 			};
 			name = Debug;
@@ -709,6 +719,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Vitalyi.WillPower.QuizAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = QuizApp;
 			};
 			name = Release;

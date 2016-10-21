@@ -22,6 +22,8 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
     
     @IBOutlet weak var ConstraintForLetters: NSLayoutConstraint!
 
+    @IBOutlet weak var PhotoWidth: NSLayoutConstraint!
+    @IBOutlet weak var PhotoHei: NSLayoutConstraint!
     @IBOutlet weak var Active: UIActivityIndicatorView!
     @IBOutlet weak var SplitToHide: UIImageView!
     @IBOutlet weak var Help50to50: UIButton!
@@ -87,13 +89,15 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
         score.text = def.valueForKey("score") as? String ?? "0"
         CoinsLabel.text = coins
         updateUI(questioNum)
-        UpdateHelpButtons()
+        
     }
 
     @IBAction func GetGoldClicked(sender: AnyObject) {
+        self.timer.invalidate()
         dispatch_async(dispatch_get_main_queue()){
             Chirp.sharedManager.playSound(fileName: "tapMenu.mp3")
         }
+        def.setValue("1", forKey: "lastView")
         self.performSegueWithIdentifier("QuestionToCoins", sender: self)
     }
     
@@ -126,10 +130,22 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
                 }
                 if(self.questions[questionNum].photoURL != "no")
                 {
-                    print(self.QuestionLabel.center.y)
-                    self.ConstraintForLetters.constant += -50.0
+                    //print(self.QuestionLabel.center.y)
+//                    print("!1!1!1!1!1!1!1! \(self.ConstraintForLetters.constant) !1!1!1!1!1!")
+//                    let t = self.ConstraintForLetters.constant
+//                    self.ConstraintForLetters.constant = t-50.0
+                    if (DeviceType.IS_IPHONE_5){
+                        self.PhotoHei.constant = 110.0
+                        self.PhotoWidth.constant = 210.0
+                    }
+                    if(DeviceType.IS_IPHONE_4_OR_LESS)
+                    {
+                        self.PhotoHei.constant = 90.0
+                        self.PhotoWidth.constant = 150.0
+                    }
                     self.Photo.hidden = false
-                    let url = NSURL(string: self.questions[questionNum].photoURL)
+                    let rurl = "http://aglinsky.ru/quizPics/\(self.questions[questionNum].photoURL)"
+                    let url = NSURL(string: rurl)
                     self.Photo.sd_setImageWithURL(url)
                     UIView.animateWithDuration(0.5, delay: 0.5, options: .AllowAnimatedContent , animations: {
                         self.def.setValue(self.QuestionLabel.center.y, forKey: "QuestCenter")
@@ -322,6 +338,7 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
     
     
     @IBAction func AnswerSelect(sender: UIButton) {
+        timer.invalidate()
         Answer1.enabled = false
         Answer2.enabled = false
         Answer3.enabled = false
@@ -342,6 +359,7 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
             let delay = 1.5 * Double(NSEC_PER_SEC)
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue()) {
+                self.timer.fire()
                 self.updateUI(self.questioNum)
             }
             
@@ -356,6 +374,7 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
             {
                 
                 sender.setBackgroundImage(UIImage(named: "WrongQuestion"), forState: .Normal)
+                timer.fire()
                 isCheating = false
                 Answer1.enabled = true
                 Answer2.enabled = true
@@ -392,6 +411,16 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
                                         let time5 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
                                         dispatch_after(time5, dispatch_get_main_queue()) {
                                             button.setBackgroundImage(UIImage(named: "RightQuestion"), forState: .Normal)
+                                            self.lives += -1
+                                            self.questioNum = Int(arc4random_uniform(UInt32(9)))
+                                            self.i += 1
+                                            let delay = 2.9 * Double(NSEC_PER_SEC)
+                                            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                                            dispatch_after(time, dispatch_get_main_queue()) {
+                                                self.timer.fire()
+                                                self.updateUI(self.questioNum)
+                                            }
+
                                         }
 
                                     }
@@ -407,16 +436,7 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
                         
                     }
                 }
-                lives += -1
-                questioNum = Int(arc4random_uniform(UInt32(9)))
-                i += 1
-                let delay = 2.9 * Double(NSEC_PER_SEC)
-                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                dispatch_after(time, dispatch_get_main_queue()) {
-                    
-                    self.updateUI(self.questioNum)
-                }
-            }
+                            }
             
             
         }
@@ -448,8 +468,15 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
             let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
             dispatch_after(time, dispatch_get_main_queue()) {
                 self.updateUI(self.questioNum)
+                
             }
-            timeCount = 13.0
+            self.timeCount = 13.0
+            if(!timer.valid){
+                
+                timer.fire()
+            }
+            
+            
         }
         else
         {
@@ -474,6 +501,19 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
         timeCount = 11
         isCheating = true
         }
+        else
+        {
+            SweetAlert().showAlert("Не хватает монет", subTitle: "Хотите купить еще?", style: AlertStyle.CustomImag(imageFile: "goldIco"), buttonTitle:"Нет", buttonColor:UIColorFromRGB(0xD0D0D0) , otherButtonTitle:  "Да", otherButtonColor: UIColorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+                if isOtherButton == true {
+                    
+                    print("Cancel Button  Pressed")
+                }
+                else {
+                    self.timer.invalidate()
+                    self.performSegueWithIdentifier("QuestionToCoins", sender: self)
+                }
+            }
+        }
     }
     
     @IBAction func HelpCheat(sender: UIButton) {
@@ -490,6 +530,20 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
         dispatch_after(time, dispatch_get_main_queue()) {
             sender.enabled = true
         }
+        }
+        else
+        {
+            SweetAlert().showAlert("Не хватает монет", subTitle: "Хотите купить еще?", style: AlertStyle.CustomImag(imageFile: "goldIco"), buttonTitle:"Нет", buttonColor:UIColorFromRGB(0xD0D0D0) , otherButtonTitle:  "Да", otherButtonColor: UIColorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+                if isOtherButton == true {
+                    
+                    print("Cancel Button  Pressed")
+                }
+                else {
+                    self.timer.invalidate()
+                    self.performSegueWithIdentifier("QuestionToCoins", sender: self)
+                }
+            }
+            
         }
     }
     
@@ -521,6 +575,19 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
             bu.setTitle("", forState: .Normal)
         }
 
+        }
+        else
+        {
+            SweetAlert().showAlert("Не хватает монет", subTitle: "Хотите купить еще?", style: AlertStyle.CustomImag(imageFile: "goldIco"), buttonTitle:"Нет", buttonColor:UIColorFromRGB(0xD0D0D0) , otherButtonTitle:  "Да", otherButtonColor: UIColorFromRGB(0xDD6B55)) { (isOtherButton) -> Void in
+                if isOtherButton == true {
+                    
+                    print("Cancel Button  Pressed")
+                }
+                else {
+                    self.timer.invalidate()
+                    self.performSegueWithIdentifier("QuestionToCoins", sender: self)
+                }
+            }
         }
         
     }
@@ -725,7 +792,6 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
             CoinsLabel.text = "\(def.valueForKey("coins") as? String ?? "0")"
         }
         else{
-            UpdateHelpButtons()
             b = false
         }
         return b
@@ -741,12 +807,12 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
             let string = self.questions[questioNum].answers[0]
             let count = string.characters.count
                 switch count {
-                case 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21:
-                    edgeInsets = (UIScreen.mainScreen().bounds.size.width - (CGFloat(answersLetters.count) * 40) - (CGFloat(answersLetters.count) * 10)) / 2
+                case 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26:
+                    edgeInsets = (UIScreen.mainScreen().bounds.size.width - (CGFloat(answersLetters.count) * 40) - (CGFloat(answersLetters.count) * 5)) / 2
                 case 1, 2, 3, 4, 5:
-                    edgeInsets = (UIScreen.mainScreen().bounds.size.width - (CGFloat(answersLetters.count) * 50) - (CGFloat(answersLetters.count) * 10)) / 2
+                    edgeInsets = (UIScreen.mainScreen().bounds.size.width - (CGFloat(answersLetters.count) * 50) - (CGFloat(answersLetters.count) * 5)) / 2
                 default:
-                    edgeInsets = (UIScreen.mainScreen().bounds.size.width - (CGFloat(answersLetters.count) * 50) - (CGFloat(answersLetters.count) * 10)) / 2
+                    edgeInsets = (UIScreen.mainScreen().bounds.size.width - (CGFloat(answersLetters.count) * 50) - (CGFloat(answersLetters.count) * 5)) / 2
                 }
 
             }
@@ -799,5 +865,20 @@ class QuestionsViewController: UIViewController, MPInterstitialAdControllerDeleg
         Chirp.sharedManager.removeSound(fileName: "Help.mp3")
         Chirp.sharedManager.removeSound(fileName: "tapMenu.mp3")
     }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
+    
+    
 
 }
+
+
+

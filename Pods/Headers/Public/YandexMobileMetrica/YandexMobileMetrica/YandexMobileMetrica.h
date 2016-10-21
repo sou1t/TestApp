@@ -1,1 +1,0 @@
-../../../../YandexMobileMetrica/YandexMobileMetrica.framework/Versions/A/Headers/YandexMobileMetrica.h

@@ -72,6 +72,7 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
 
     
     override func viewDidLoad() {
+        //def.setValue("999", forKey: "coins")
         dispatch_async(dispatch_get_main_queue()){
             Chirp.sharedManager.prepareSound(fileName: "tapMenu.mp3")
             Chirp.sharedManager.prepareSound(fileName: "coins.mp3")
@@ -263,6 +264,7 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
 
     @IBAction func GetGoldClicked(sender: AnyObject) {
         Flurry.logEvent("User go to 'get gold' page")
+        def.setValue("0", forKey: "lastView")
         Chirp.sharedManager.playSound(fileName: "tapMenu.mp3")
         self.performSegueWithIdentifier("MainToCoins", sender: self)
     }
